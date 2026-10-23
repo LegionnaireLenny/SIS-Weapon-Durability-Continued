@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SISWeaponDurability", "SISWeaponDurability\SISWeaponDurability.csproj", "{E5C2815C-9693-44C1-8E3C-2F0DCB955574}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SISWeaponDurability", "SISWeaponDurability.csproj", "{E5C2815C-9693-44C1-8E3C-2F0DCB955574}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

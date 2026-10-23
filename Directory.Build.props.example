@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup>
+    <!-- Path to your game installation and Harmony dll -->
+    <GameInstallDir>C:\Program Files (x86)\Steam\steamapps\common\Survivalist Invisible Strain</GameInstallDir>
+	<UnityResourceDir>$(GameInstallDir)\Survivalist Invisible Strain_Data\Managed</UnityResourceDir>
+    <HarmonyDir>C:\Programming\Source\Projects\Survivalist Invisible Strain</HarmonyDir>
+
+    <!-- Where to copy the built DLL after build (your game's Mods folder) -->
+    <ModOutputDir>C:\Program Files (x86)\Steam\steamapps\workshop\content\1054510\3487805258\DLLs</ModOutputDir>
+  </PropertyGroup>
+
+  <Target Name="CopyToMods" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModOutputDir)" />
+    <Message Importance="high" Text="Copied $(TargetFileName) to $(ModOutputDir)" />
+  </Target>
+</Project>

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E5C2815C-9693-44C1-8E3C-2F0DCB955574}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SISWeaponDurability</RootNamespace>
+    <AssemblyName>SISWeaponDurability</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(HarmonyDir)\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(UnityResourceDir)\Assembly-CSharp.dll</HintPath>
+    </Reference>
+	<Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>$(UnityResourceDir)\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+	<Reference Include="netstandard">
+      <HintPath>$(UnityResourceDir)\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(UnityResourceDir)\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System"/>
+    <Reference Include="System.Xml"/>
+    <Reference Include="UnityEngine">
+      <HintPath>$(UnityResourceDir)\UnityEngine.dll</HintPath>
+	</Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>$(UnityResourceDir)\UnityEngine.AssetBundleModule.dll</HintPath>
+	</Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>$(UnityResourceDir)\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(UnityResourceDir)\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SISWeaponDurability\AmmoWeapon_OnFired__Patch.cs" />
+    <Compile Include="SISWeaponDurability\AvailableAction_GetCaption__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Character_OnMeleeAttacked__Patch.cs" />
+    <Compile Include="SISWeaponDurability\EquipmentContainer_GetBestWeaponForShortcut__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Equipment_CanBeCombinedWith__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Equipment_CanBeCombined__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Equipment_GetBaseDamage__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Equipment_GetBasePrice__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Equipment_GetLiquidAmountBar__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Equipment_Init__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Equipment_Spawn__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Equipment_WantRareUpdate__Patch.cs" />
+    <Compile Include="SISWeaponDurability\GameCursor_AddEquipmentItemActions__Patch.cs" />
+    <Compile Include="SISWeaponDurability\GameImpl_SetPrototypeLookupsFromStory__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Hud_OnSelectedAction__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Hud_OnSelectedDisabledAction__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Main.cs" />
+    <Compile Include="SISWeaponDurability\MoveToAndChokeHold_OnDeactivate__Patch.cs" />
+    <Compile Include="SISWeaponDurability\MoveToAndChop_OnDeactivate__Patch.cs" />
+    <Compile Include="SISWeaponDurability\MoveToAndMine_OnDeactivate__Patch.cs" />
+    <Compile Include="SISWeaponDurability\MoveToAndSkin_OnAnimationEvent__Patch.cs" />
+    <Compile Include="SISWeaponDurability\MoveToAndSkin_OnDeactivate__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Properties\AssemblyInfo.cs" />
+    <Compile Include="SISWeaponDurability\Session_Load__Patch.cs" />
+    <Compile Include="SISWeaponDurability\Session_ProcessInputAction__Patch.cs" />
+    <Compile Include="SISWeaponDurability\SISWeaponDurability_Config.cs" />
+    <Compile Include="SISWeaponDurability\SISWeaponDurability_Settings.cs" />
+    <Compile Include="SISWeaponDurability\SISWeaponDurability_SettingsAddon.cs" />
+    <Compile Include="SISWeaponDurability\SISWeaponDurability_Utils.cs" />
+    <Compile Include="SISWeaponDurability\Story_OnLoadedAssetBundle__Patch.cs" />
+    <Compile Include="SISWeaponDurability\WeaponTypeSettings.cs" />
+    <Compile Include="SISWeaponDurability\WeaponTypeSettingsDefaults.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
