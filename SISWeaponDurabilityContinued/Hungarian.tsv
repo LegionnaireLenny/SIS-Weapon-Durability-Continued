@@ -1,0 +1,30 @@
+Tag	Translation
+STORY_Title	SIS Weapon Durability
+STORY_Description	This mod adds weapon durability and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!
+
+EQUIPMENT_AnimalFat	Állati zsír	Animal Fat
+DESC_AnimalFat	Otthoni ragasztó készítésére használható tábortüzeknél.	Can be used to make home-made glue at campfires.
+EQUIPMENT_DuctTape	Dugaszszalag	Duct Tape
+DESC_DuctTape	Használható egy fegyver javítására.	Can be used to repair a weapon.
+EQUIPMENT_Glue	Ragasztó	Glue
+DESC_Glue	Használható szigetelőszalag készítésére a munkapadnál.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_GunParts	Fegyveralkatrészek	Gun Parts
+DESC_GunParts	Használható fegyverjavító készletek készítésére a munkaasztalon.	Can be used to craft gun repair kits at the workbench.
+EQUIPMENT_GunRepairKit	Fegyverjavító készlet	Gun Repair Kit
+DESC_GunRepairKit	Használható egy fegyver javítására.	Can be used to repair a gun.
+EQUIPMENT_HomemadeGlue	Otthoni ragasztó	Homemade Glue
+DESC_HomemadeGlue	Használható szigetelőszalag készítésére a munkapadon.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_JunkParts	Hulladék Alkatrészek	Junk Parts
+DESC_JunkParts	Használható szigetelőszalag készítésére a munkapadon.	Can be used to craft duct tape at the workbench.
+RECIPE_MakeDuctTape	Készíts szigetelőszalagot	Make Duct Tape
+RECIPE_MakeGunRepairKit	Készíts fegyverjavító szettet	Make Gun Repair Kit
+RECIPE_MakeHomemadeGlue	Készíts házi ragasztót	Make Homemade Glue
+SPEECH_HUD_ConfirmRepairWeapon	A %3 javításához a %2 %1%-át fogod használni.	You will use %1 of %2 to repair %3.
+SPEECH_HUD_CantRepairInCombat	Nem lehet fegyvereket javítani harc közben.	You cannot repair weapons while in combat.
+SPEECH_HUD_NoDuctTape	Szükséged van szigetelőszalagra a javításhoz.	You need duct tape to repair this.
+SPEECH_HUD_NoGunRepairKit	Ehhez fegyverjavító készletre van szükséged.	You need a gun repair kit to repair this.
+SPEECH_HUD_NotDamaged	Ez a fegyver nincs megsérülve, ezért nem lehet megjavítani.	This weapon is not damaged, so it can't be repaired.
+SPEECH_HUD_RepairWeapon	Javítás	Repair
+SPEECH_HUD_DisassembleWeapon	Kapott fegyver	Scrap Weapon
+SPEECH_HINT_YourWeaponBroke	A %1-d elmúlt!	Your %1 broke!
+SPEECH_NPCWeaponBroken	Eltört a fegyverem!	My weapon broke!

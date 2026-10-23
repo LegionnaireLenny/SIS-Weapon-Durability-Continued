@@ -1,0 +1,30 @@
+Tag	Translation
+STORY_Title	SIS Weapon Durability
+STORY_Description	This mod adds weapon durability and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!
+
+EQUIPMENT_AnimalFat	Тваринний жир	Animal Fat
+DESC_AnimalFat	Можна використовувати для виготовлення домашнього клею на вогнищах.	Can be used to make home-made glue at campfires.
+EQUIPMENT_DuctTape	Клеяка	Duct Tape
+DESC_DuctTape	Може бути використано для ремонту зброї.	Can be used to repair a weapon.
+EQUIPMENT_Glue	Клей	Glue
+DESC_Glue	Можна використовувати для виготовлення скотчу на верстаті.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_GunParts	Частини зброї	Gun Parts
+DESC_GunParts	Може бути використано для виготовлення комплектів для ремонту зброї на верстаті.	Can be used to craft gun repair kits at the workbench.
+EQUIPMENT_GunRepairKit	Комплект для ремонту зброї	Gun Repair Kit
+DESC_GunRepairKit	Може бути використано для ремонту рушниці.	Can be used to repair a gun.
+EQUIPMENT_HomemadeGlue	Домашній клей	Homemade Glue
+DESC_HomemadeGlue	Можна використовувати для виготовлення скотчу на верстаті.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_JunkParts	Відходи	Junk Parts
+DESC_JunkParts	Можна використовувати для виготовлення скотчу на верстаті.	Can be used to craft duct tape at the workbench.
+RECIPE_MakeDuctTape	Зробіть клейку стрічку	Make Duct Tape
+RECIPE_MakeGunRepairKit	Зробіть набір для ремонту зброї	Make Gun Repair Kit
+RECIPE_MakeHomemadeGlue	Зробіть домашній клей	Make Homemade Glue
+SPEECH_HUD_ConfirmRepairWeapon	Ви використаєте %1 з %2 для ремонту %3.	You will use %1 of %2 to repair %3.
+SPEECH_HUD_CantRepairInCombat	Ви не можете ремонтувати зброю під час бою.	You cannot repair weapons while in combat.
+SPEECH_HUD_NoDuctTape	Тобі потрібен клейка стрічка, щоб полагодити це.	You need duct tape to repair this.
+SPEECH_HUD_NoGunRepairKit	Вам знадобиться набір для ремонту зброї, щоб відремонтувати це.	You need a gun repair kit to repair this.
+SPEECH_HUD_NotDamaged	Ця зброя не пошкоджена, тому її не можна відремонтувати.	This weapon is not damaged, so it can't be repaired.
+SPEECH_HUD_RepairWeapon	Ремонт	Repair
+SPEECH_HUD_DisassembleWeapon	Відходи зброї	Scrap Weapon
+SPEECH_HINT_YourWeaponBroke	Твій %1 зламався!	Your %1 broke!
+SPEECH_NPCWeaponBroken	Моя зброя зламалася!	My weapon broke!

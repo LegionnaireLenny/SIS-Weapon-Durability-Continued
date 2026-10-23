@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 3069760272
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 912d30c31612a77f67931dec14ab343a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SweetCaptn/sisweapondurability/sounds/repair_sound1.wav
+- Assets/SweetCaptn/sisweapondurability/sounds/weaponbreak_sound1.wav
+- Assets/SweetCaptn/sisweapondurability/sounds/repairgun_sound3.wav
+- Assets/SweetCaptn/sisweapondurability/sounds/weaponbreak_sound2.wav
+- Assets/SweetCaptn/sisweapondurability/sounds/weaponbreak_sound3.wav
+- Assets/SweetCaptn/sisweapondurability/sounds/repairgun_sound2.wav
+- Assets/SweetCaptn/sisweapondurability/sounds/weaponbreak_sound4.wav
+- Assets/SweetCaptn/sisweapondurability/sounds/repair_sound2.wav
+- Assets/SweetCaptn/sisweapondurability/sounds/repairgun_sound1.wav
+Dependencies: []

@@ -1,0 +1,30 @@
+Tag	Translation
+STORY_Title	SIS Weapon Durability
+STORY_Description	This mod adds weapon durability and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!
+
+EQUIPMENT_AnimalFat	Hayvan Yağı	Animal Fat
+DESC_AnimalFat	Kamp ateşlerinde ev yapımı yapıştırıcı yapmak için kullanılabilir.	Can be used to make home-made glue at campfires.
+EQUIPMENT_DuctTape	Duct Tape	Duct Tape
+DESC_DuctTape	Bir silahı onarmak için kullanılabilir.	Can be used to repair a weapon.
+EQUIPMENT_Glue	Yapıştırıcı	Glue
+DESC_Glue	Bunu işbenchinde yalıtım bandı yapmak için kullanabilirsiniz.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_GunParts	Ateşli Silah Parçaları	Gun Parts
+DESC_GunParts	Alet tezgahında silah tamir kitleri yapmak için kullanılabilir.	Can be used to craft gun repair kits at the workbench.
+EQUIPMENT_GunRepairKit	Silah Tamir Kiti	Gun Repair Kit
+DESC_GunRepairKit	Bir tabancayı onarmak için kullanılabilir.	Can be used to repair a gun.
+EQUIPMENT_HomemadeGlue	Ev Yapımı Tutkal	Homemade Glue
+DESC_HomemadeGlue	Bunu işbenchinde yalıtım bandı yapmak için kullanabilirsiniz.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_JunkParts	Atık Parçalar	Junk Parts
+DESC_JunkParts	Bunu işbenchinde yalıtım bandı yapmak için kullanabilirsiniz.	Can be used to craft duct tape at the workbench.
+RECIPE_MakeDuctTape	Dünyayı Yapıştırıcıyla Yap	Make Duct Tape
+RECIPE_MakeGunRepairKit	Silah Tamir Kiti Yap	Make Gun Repair Kit
+RECIPE_MakeHomemadeGlue	Ev Yapımı Yapıştırıcı Yap	Make Homemade Glue
+SPEECH_HUD_ConfirmRepairWeapon	%3'ü onarmak için %2'nin %1'ini kullanacaksınız.	You will use %1 of %2 to repair %3.
+SPEECH_HUD_CantRepairInCombat	Savaş sırasında silahları tamir edemezsiniz.	You cannot repair weapons while in combat.
+SPEECH_HUD_NoDuctTape	Bunu onarmak için izolasyon bandına ihtiyacın var.	You need duct tape to repair this.
+SPEECH_HUD_NoGunRepairKit	Bunu onarmak için bir silah onarım kiti gerekiyor.	You need a gun repair kit to repair this.
+SPEECH_HUD_NotDamaged	Bu silah hasar görmemiş, bu yüzden tamir edilemez.	This weapon is not damaged, so it can't be repaired.
+SPEECH_HUD_RepairWeapon	Tamir	Repair
+SPEECH_HUD_DisassembleWeapon	Çöp Silahı	Scrap Weapon
+SPEECH_HINT_YourWeaponBroke	Senin %1 bozuldu!	Your %1 broke!
+SPEECH_NPCWeaponBroken	Silahım kırıldı!	My weapon broke!

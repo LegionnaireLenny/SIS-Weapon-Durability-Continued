@@ -1,0 +1,30 @@
+Tag	Translation
+STORY_Title	SIS Weapon Durability
+STORY_Description	This mod adds weapon durability and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!
+
+EQUIPMENT_AnimalFat	Tierfett	Animal Fat
+DESC_AnimalFat	Kann verwendet werden, um Haarglue bei Lagerfeuern herzustellen.	Can be used to make home-made glue at campfires.
+EQUIPMENT_DuctTape	Duct Tape	Duct Tape
+DESC_DuctTape	Kann zur Reparatur einer Waffe verwendet werden.	Can be used to repair a weapon.
+EQUIPMENT_Glue	Kleber	Glue
+DESC_Glue	Kann verwendet werden, um Haftpaste an der Werkbank herzustellen.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_GunParts	Waffenkomponenten	Gun Parts
+DESC_GunParts	Kann verwendet werden, um Waffenreparaturkits am Werkstatt-Tisch herzustellen.	Can be used to craft gun repair kits at the workbench.
+EQUIPMENT_GunRepairKit	Waffenreparaturset	Gun Repair Kit
+DESC_GunRepairKit	Kann zur Reparatur einer Waffe verwendet werden.	Can be used to repair a gun.
+EQUIPMENT_HomemadeGlue	Selbstgemachter Kleber	Homemade Glue
+DESC_HomemadeGlue	Kann verwendet werden, um Haftpaste an der Werkbank herzustellen.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_JunkParts	Schrottteile	Junk Parts
+DESC_JunkParts	Kann verwendet werden, um Haftpaste an der Werkbank herzustellen.	Can be used to craft duct tape at the workbench.
+RECIPE_MakeDuctTape	Mach Klebeband	Make Duct Tape
+RECIPE_MakeGunRepairKit	Mach ein Waffereparaturset	Make Gun Repair Kit
+RECIPE_MakeHomemadeGlue	Mach hausgemachten Kleber	Make Homemade Glue
+SPEECH_HUD_ConfirmRepairWeapon	Sie werden %1 von %2 verwenden, um %3 zu reparieren.	You will use %1 of %2 to repair %3.
+SPEECH_HUD_CantRepairInCombat	Sie können Waffen im Kampf nicht reparieren.	You cannot repair weapons while in combat.
+SPEECH_HUD_NoDuctTape	Du brauchst Duct Tape, um das zu reparieren.	You need duct tape to repair this.
+SPEECH_HUD_NoGunRepairKit	Du brauchst ein Waffenreparaturset, um das zu reparieren.	You need a gun repair kit to repair this.
+SPEECH_HUD_NotDamaged	Diese Waffe ist nicht beschädigt, daher kann sie nicht repariert werden.	This weapon is not damaged, so it can't be repaired.
+SPEECH_HUD_RepairWeapon	Reparatur	Repair
+SPEECH_HUD_DisassembleWeapon	Schrotwaffe	Scrap Weapon
+SPEECH_HINT_YourWeaponBroke	Dein %1 ist kaputt!	Your %1 broke!
+SPEECH_NPCWeaponBroken	Meine Waffe ist kaputt!	My weapon broke!

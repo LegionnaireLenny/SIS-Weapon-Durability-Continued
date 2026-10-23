@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<RecipeList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Recipes>
+	
+    <Recipe>
+      <UniqueID>MakeHomemadeGlue</UniqueID>
+      <NativeName>Make Homemade Glue</NativeName>
+      <RecipeType>Campfire_Pot</RecipeType>
+      <ShowRecipe>IfAllIngredientsFound</ShowRecipe>
+      <CraftingStationType>Campfire</CraftingStationType>
+      <SkillType>Cooking</SkillType>
+      <SkillLevel>0</SkillLevel>
+      <SkillProgression>10</SkillProgression>
+      <ProductPrototypeName>HomemadeGlue</ProductPrototypeName>
+	  <ProductAmount>1</ProductAmount>
+      <CraftingTime>20</CraftingTime>
+      <Ingredients>
+        <Ingredient>
+          <PrototypeNames>
+            <string>AnimalFat</string>
+          </PrototypeNames>
+          <Amount>2</Amount>
+        </Ingredient>
+        <Ingredient>
+          <LiquidTypeNames>
+            <string>Water</string>
+          </LiquidTypeNames>
+          <LiquidAmount>100</LiquidAmount>
+        </Ingredient>
+      </Ingredients>
+    </Recipe>
+	
+    <Recipe>
+      <UniqueID>MakeGunRepairKit</UniqueID>
+      <NativeName>Make Gun Repair Kit</NativeName>
+      <RecipeType>Workbench</RecipeType>
+      <ShowRecipe>IfAllIngredientsFound</ShowRecipe>
+      <CraftingStationType>WorkBench</CraftingStationType>
+      <SkillType>Construction</SkillType>
+      <SkillLevel>3</SkillLevel>
+      <SkillProgression>10</SkillProgression>
+      <ProductPrototypeName>GunRepairKit</ProductPrototypeName>
+	  <ProductAmount>1</ProductAmount>
+      <CraftingTime>10</CraftingTime>
+      <Ingredients>
+        <Ingredient>
+          <PrototypeNames>
+            <string>GunParts</string>
+          </PrototypeNames>
+          <Amount>5</Amount>
+        </Ingredient>
+      </Ingredients>
+    </Recipe>
+	
+    <Recipe>
+      <UniqueID>MakeDuctTape</UniqueID>
+      <NativeName>Make Duct Tape</NativeName>
+      <RecipeType>Workbench</RecipeType>
+      <ShowRecipe>IfAllIngredientsFound</ShowRecipe>
+      <CraftingStationType>WorkBench</CraftingStationType>
+      <SkillType>Construction</SkillType>
+      <SkillLevel>3</SkillLevel>
+      <SkillProgression>10</SkillProgression>
+      <ProductPrototypeName>DuctTape</ProductPrototypeName>
+	  <ProductAmount>1</ProductAmount>
+      <CraftingTime>10</CraftingTime>
+      <Ingredients>
+        <Ingredient>
+          <PrototypeNames>
+            <string>JunkParts</string>
+          </PrototypeNames>
+          <Amount>10</Amount>
+        </Ingredient>
+        <Ingredient>
+          <PrototypeNames>
+            <string>Glue</string>
+			<string>HomemadeGlue</string>
+          </PrototypeNames>
+          <Amount>1</Amount>
+        </Ingredient>
+      </Ingredients>
+    </Recipe>
+	
+	
+  </Recipes>
+</RecipeList>

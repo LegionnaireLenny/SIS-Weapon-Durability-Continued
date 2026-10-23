@@ -1,0 +1,33 @@
+Tag	Translation
+STORY_Title	SIS Weapon Durability
+STORY_Description	This mod adds weapon durability and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!
+
+EQUIPMENT_AnimalFat	Animal Fat
+DESC_AnimalFat	Can be used to make home-made glue at campfires.
+EQUIPMENT_DuctTape	Duct Tape
+DESC_DuctTape	Can be used to repair a weapon.
+EQUIPMENT_Glue	Glue
+DESC_Glue	Can be used to craft duct tape at the workbench.
+EQUIPMENT_GunParts	Gun Parts
+DESC_GunParts	Can be used to craft gun repair kits at the workbench.
+EQUIPMENT_GunRepairKit	Gun Repair Kit
+DESC_GunRepairKit	Can be used to repair a gun.
+EQUIPMENT_HomemadeGlue	Homemade Glue
+DESC_HomemadeGlue	Can be used to craft duct tape at the workbench.
+EQUIPMENT_JunkParts	Junk Parts
+DESC_JunkParts	Can be used to craft duct tape at the workbench.
+
+RECIPE_MakeDuctTape	Make Duct Tape
+RECIPE_MakeGunRepairKit	Make Gun Repair Kit
+RECIPE_MakeHomemadeGlue	Make Homemade Glue
+
+SPEECH_HUD_ConfirmRepairWeapon	You will use %1 of %2 to repair %3.
+SPEECH_HUD_CantRepairInCombat	You cannot repair weapons while in combat.
+SPEECH_HUD_NoDuctTape	You need duct tape to repair this.
+SPEECH_HUD_NoGunRepairKit	You need a gun repair kit to repair this.
+SPEECH_HUD_NotDamaged	This weapon is not damaged, so it can't be repaired.
+SPEECH_HUD_RepairWeapon	Repair
+SPEECH_HUD_DisassembleWeapon	Scrap Weapon
+SPEECH_HINT_YourWeaponBroke	Your %1 broke!
+SPEECH_NPCWeaponBroken	My weapon broke!
+

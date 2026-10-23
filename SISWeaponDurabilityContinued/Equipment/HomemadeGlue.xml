@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<EquipmentPrototype xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NativeName>Homemade Glue</NativeName>
+  <NativeDescription>Can be used to craft duct tape at the workbench.</NativeDescription>
+  <Category>6:Crafting</Category>
+  <Weight>1</Weight>
+  <BasePrice>3</BasePrice>
+  <Scarcity>Uncommon</Scarcity>
+  <LootableFromLocations>
+    <LootableFrom>
+      <Name>Camp</Name>
+    </LootableFrom>
+  </LootableFromLocations>
+  <TypicalLootAmount>2</TypicalLootAmount>
+</EquipmentPrototype>

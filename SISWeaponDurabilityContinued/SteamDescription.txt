@@ -1,0 +1,69 @@
+[h2]What is this?[/h2]
+This mod adds [b]weapon durability[/b] and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!
+
+[b]Recommended to start a new game.[/b]
+
+[h2]Features[/h2]
+[list]
+[*] Weapons now have durability and will degrade by usage. Different weapons have different durabilities. All can be tweaked through the settings.
+[*] Can affect player community and / or NPCS.
+[*] Weapon price and damage affected by their durability.
+[*] Repair melee weapons by using Duct Tape or guns with Gun Repair Kits. Can be found in the world or crafted at the workbench.
+[*] Visible Durability bar for weapons. Changes color as the durability goes down.
+[*] Adds 7 new equipment items: Animal fat, Glue, Homemade Glue, Junk Parts, Gun Parts, Duct Tape and Gun Repair Kit.
+[*] Supports any weapons added by mods.
+[/list]
+
+[h3] Detailed Information [/h3]
+
+Every weapon in the game now has durability, the speed at which it degrades, and the  amount of parts that are given when it breaks. Each weapon type has its own maximum durability, with some weapons breaking much faster than others (such as planks or frying pans).
+
+Whenever a weapon breaks, there's a chance it will drop parts which can be used at a workbench with Glue to create Duct Tape (will require some construction skill), or Gun Parts which can be combined to make Gun Repair Kits.
+
+Weapons are repaired by using Duct tape or Gun Repair Kits which can also be found around the world or bought from traders. To repair a weapon, just select the "Repair" action in the inventory page for that specific weapon. If you have the necessary items in your inventory, the weapon will be repaired to a certain state. A gun repair kit always fully repairs a gun, but duct tape only repairs a melee weapon partially.
+
+When selling weapons, their durability affects their prices. A very damaged weapon won't be as valuable as another one in pristine condition. Same thing happens with their damage, the less durability they have, the less damage they will do.
+
+[h3]Co-op[/h3]
+It might now be compatible with co-op, but I'm not entirely sure. Let me know in the comments if you run into any issues.
+
+[h3]Recipes[/h3]
+[list]
+[*] Make Homemade Glue. Made at campfire with pot. Requires 2 Animal Fat + 100 Water.
+[*] Make Gun Repair Kit. Made at workbench. Requires Construction level 3 + 5 Gun Parts.
+[*] Make Duct Tape. Made at workbench. Requires Construction level 3 + 10 Junk Parts + 1 Glue (or Homemade Glue).
+[/list]
+
+[h3] Modded Weapons Support [/h3]
+It supports any weapons added by other mods, and will give default configurations for weapons that aren't found in the settings file. For any modder adding weapons to the game, you can set the durability configuration of your weapons by creating a file named "SISWeaponDurability_WeaponsAddon.xml" inside your mod folder. 
+
+[b] Follow the example file that is provided with this mod. [/b]
+
+[h2]Settings[/h2]
+The settings file can be found inside the mod's folder under "Settings_SISWeaponDurability.xml".
+[list]
+[*] EnabledForPlayerCommunity. Whether weapons will degrade for you and characters in your community. (default true)
+[*] EnabledForNPCs. Whether weapons will degrade for npcs. (default false)
+[*] EnabledForMeleeWeapons. Whether durability is enabled for melee weapons. (default true)
+[*] EnabledForAmmoWeapons. Whether durability is enabled for guns. (default true)
+[*] GlobalDurabilityDegradeRate. General durability degrade rate. (default 1.0)
+[*] WeaponsSpawnWithLessDurability. Whether weapons spawn with less durability. (default true)
+[*] HitLocationAffectsDegradation. Whether hit location (head, top, bottom) affects degradation of weapons. (default false)
+[*] WeaponTypes. List with the settings for each weapon.
+[/list]
+
+[h3]WeaponTypeSettings[/h3]
+This is the durability configuration for a weapon, where you can set its maximum durability, degradation rate, amount of parts given on break. 
+[list]
+[*] WeaponType. The weapon's prototype name.
+[*] DegradeRate. The speed at which the weapon degrades.
+[*] MaxDurability. A weapon's maximum durability.
+[*] MinPartsOnBroken. Minimum amount of parts obtained when the weapon breaks.
+[*] MaxPartsOnBroken. Maximum amount of parts obtained when the weapon breaks. 
+[/list]
+
+[h2]Notes[/h2]
+The mod changes quite a few things, so there could be a bug or two. Report any issues in the comments section!
+
+[h2]Compatibility[/h2]
+Could have some incompatibilities with mods changing combat behaviour, otherwise you're all set :)

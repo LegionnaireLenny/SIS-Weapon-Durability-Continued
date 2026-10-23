@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<Script xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NextFreeSpeechID>2</NextFreeSpeechID>
+  <NextFreeTriggerID>1</NextFreeTriggerID>
+  <NextFreeConditionBlockID>1</NextFreeConditionBlockID>
+  <NextFreeQuestID>1</NextFreeQuestID>
+  <NextFreeQuestGroupID>1</NextFreeQuestGroupID>
+  <NextFreeTemplateID>1</NextFreeTemplateID>
+  <NextFreeInvaderID>1</NextFreeInvaderID>
+  <EditorScrollPos>
+    <x>120.542694</x>
+    <y>238.684448</y>
+  </EditorScrollPos>
+  <EditorZoomScale>0.8801896</EditorZoomScale>
+  <Speeches>
+    
+	<Speech UniqueID="HUD_ConfirmRepairWeapon" x="665.343445" y="-633.4247" NativeText="You will use %1 of %2 to repair %3." />
+	<Speech UniqueID="HUD_CantRepairInCombat" x="665.343445" y="-633.4247" NativeText="You cannot repair weapons while in combat." />
+	<Speech UniqueID="HUD_NoDuctTape" x="665.343445" y="-633.4247" NativeText="You need duct tape to repair this." />
+	<Speech UniqueID="HUD_NoGunRepairKit" x="665.343445" y="-633.4247" NativeText="You need a gun repair kit to repair this." />
+	<Speech UniqueID="HUD_NotDamaged" x="665.343445" y="-633.4247" NativeText="This weapon is not damaged, so it can't be repaired." />
+
+	
+	<Speech UniqueID="HUD_RepairWeapon" x="665.343445" y="-633.4247" NativeText="Repair" />
+	<Speech UniqueID="HUD_DisassembleWeapon" x="665.343445" y="-633.4247" NativeText="Scrap Weapon" />
+
+	<Speech UniqueID="HINT_YourWeaponBroke" x="665.343445" y="-633.4247" NativeText="Your %1 broke!" Situation="CustomUseAction" Importance="Low" CanTalkOutOfRange="true">
+	  <Params/>
+      <PriorityTerms />
+      <Events />
+      <UninterruptibleEvents />
+    </Speech>
+	
+    <Speech UniqueID="NPCWeaponBroken" x="665.343445" y="-633.4247" NativeText="My weapon broke!" Situation="CustomUseAction" Importance="Low" CanTalkOutOfRange="true">
+	  <Params/>
+      <PriorityTerms />
+      <Events />
+      <UninterruptibleEvents />
+    </Speech>
+
+  </Speeches>
+  <Triggers />
+  <ConditionBlocks />
+  <Quests />
+  <QuestGroups />
+  <Templates />
+  <Invaders />
+</Script>

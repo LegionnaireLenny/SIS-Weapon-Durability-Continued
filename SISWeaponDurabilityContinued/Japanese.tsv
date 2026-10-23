@@ -1,0 +1,30 @@
+Tag	Translation
+STORY_Title	SIS Weapon Durability
+STORY_Description	This mod adds weapon durability and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!
+
+EQUIPMENT_AnimalFat	動物性脂肪	Animal Fat
+DESC_AnimalFat	キャンプファイヤーで手作りの接着剤を作ることができます。	Can be used to make home-made glue at campfires.
+EQUIPMENT_DuctTape	ダクトテープ	Duct Tape
+DESC_DuctTape	武器の修理に使用できます。	Can be used to repair a weapon.
+EQUIPMENT_Glue	接着剤	Glue
+DESC_Glue	作業台でダクトテープを作るのに使えます。	Can be used to craft duct tape at the workbench.
+EQUIPMENT_GunParts	銃器部品	Gun Parts
+DESC_GunParts	作業台で銃の修理キットを作成するために使用できます。	Can be used to craft gun repair kits at the workbench.
+EQUIPMENT_GunRepairKit	銃修理キット	Gun Repair Kit
+DESC_GunRepairKit	銃の修理に使用できます。	Can be used to repair a gun.
+EQUIPMENT_HomemadeGlue	手作りの接着剤	Homemade Glue
+DESC_HomemadeGlue	作業台でダクトテープを作るのに使えます。	Can be used to craft duct tape at the workbench.
+EQUIPMENT_JunkParts	ジャンクパーツ	Junk Parts
+DESC_JunkParts	作業台でダクトテープを作るのに使えます。	Can be used to craft duct tape at the workbench.
+RECIPE_MakeDuctTape	ダクトテープを作る	Make Duct Tape
+RECIPE_MakeGunRepairKit	銃の修理キットを作る	Make Gun Repair Kit
+RECIPE_MakeHomemadeGlue	自家製の接着剤を作る	Make Homemade Glue
+SPEECH_HUD_ConfirmRepairWeapon	%2の%1を使用して%3を修理します。	You will use %1 of %2 to repair %3.
+SPEECH_HUD_CantRepairInCombat	戦闘中には武器を修理できません。	You cannot repair weapons while in combat.
+SPEECH_HUD_NoDuctTape	これを修理するにはダクトテープが必要です。	You need duct tape to repair this.
+SPEECH_HUD_NoGunRepairKit	これを修理するには銃の修理キットが必要です。	You need a gun repair kit to repair this.
+SPEECH_HUD_NotDamaged	この武器は損傷していないので、修理できません。	This weapon is not damaged, so it can't be repaired.
+SPEECH_HUD_RepairWeapon	修理	Repair
+SPEECH_HUD_DisassembleWeapon	スクラップ武器	Scrap Weapon
+SPEECH_HINT_YourWeaponBroke	あなたの %1が壊れました！	Your %1 broke!
+SPEECH_NPCWeaponBroken	私の武器が壊れた!	My weapon broke!

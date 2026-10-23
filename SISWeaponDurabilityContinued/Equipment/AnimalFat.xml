@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<EquipmentPrototype xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NativeName>Animal Fat</NativeName>
+  <NativeDescription>Can be used to make home-made glue at campfires.</NativeDescription>
+  <Category>6:Crafting</Category>
+  <Weight>1</Weight>
+  <BasePrice>1</BasePrice>
+  <Scarcity>Uncommon</Scarcity>
+  <LootableFromLocations>
+    <LootableFrom>
+      <Name>House</Name>
+    </LootableFrom>
+    <LootableFrom>
+      <Name>Camp</Name>
+    </LootableFrom>
+    <LootableFrom>
+      <Name>Survivor</Name>
+    </LootableFrom>
+    <LootableFrom>
+      <Name>GeneralStore</Name>
+    </LootableFrom>
+    <LootableFrom>
+      <Name>Restaurant</Name>
+    </LootableFrom>
+  </LootableFromLocations>
+</EquipmentPrototype>

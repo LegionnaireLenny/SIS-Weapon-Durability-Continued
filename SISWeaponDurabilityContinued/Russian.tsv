@@ -1,0 +1,30 @@
+Tag	Translation
+STORY_Title	SIS Weapon Durability
+STORY_Description	This mod adds weapon durability and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!
+
+EQUIPMENT_AnimalFat	Животный жир	Animal Fat
+DESC_AnimalFat	Можно использовать для приготовления домашнего клея у лагерного костра.	Can be used to make home-made glue at campfires.
+EQUIPMENT_DuctTape	Двусторонний скотч	Duct Tape
+DESC_DuctTape	Может быть использовано для ремонта оружия.	Can be used to repair a weapon.
+EQUIPMENT_Glue	клей	Glue
+DESC_Glue	Может быть использовано для создания изоленты на верстаке.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_GunParts	Части оружия	Gun Parts
+DESC_GunParts	Можно использовать для создания комплектов для ремонта оружия на верстаке.	Can be used to craft gun repair kits at the workbench.
+EQUIPMENT_GunRepairKit	Набор для ремонта оружия	Gun Repair Kit
+DESC_GunRepairKit	Может быть использовано для ремонта оружия.	Can be used to repair a gun.
+EQUIPMENT_HomemadeGlue	Домашний клей	Homemade Glue
+DESC_HomemadeGlue	Можно использовать для создания изоленты на рабочем столе.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_JunkParts	Мусорные детали	Junk Parts
+DESC_JunkParts	Можно использовать для создания изоленты на рабочем столе.	Can be used to craft duct tape at the workbench.
+RECIPE_MakeDuctTape	Сделайте изоленту	Make Duct Tape
+RECIPE_MakeGunRepairKit	Сделать набор для ремонта оружия	Make Gun Repair Kit
+RECIPE_MakeHomemadeGlue	Сделайте домашний клей	Make Homemade Glue
+SPEECH_HUD_ConfirmRepairWeapon	Вы используете %1 из %2 для ремонта %3.	You will use %1 of %2 to repair %3.
+SPEECH_HUD_CantRepairInCombat	Вы не можете ремонтировать оружие во время боя.	You cannot repair weapons while in combat.
+SPEECH_HUD_NoDuctTape	Вам нужен изолента, чтобы это починить.	You need duct tape to repair this.
+SPEECH_HUD_NoGunRepairKit	Вам нужен комплект для ремонта оружия, чтобы это отремонтировать.	You need a gun repair kit to repair this.
+SPEECH_HUD_NotDamaged	Это оружие не повреждено, поэтому его нельзя отремонтировать.	This weapon is not damaged, so it can't be repaired.
+SPEECH_HUD_RepairWeapon	Ремонт	Repair
+SPEECH_HUD_DisassembleWeapon	Металлоломное оружие	Scrap Weapon
+SPEECH_HINT_YourWeaponBroke	Ваш %1 сломался!	Your %1 broke!
+SPEECH_NPCWeaponBroken	Моё оружие сломалось!	My weapon broke!

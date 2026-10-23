@@ -1,0 +1,30 @@
+Tag	Translation
+STORY_Title	SIS Weapon Durability
+STORY_Description	This mod adds weapon durability and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!
+
+EQUIPMENT_AnimalFat	Tłuszcz zwierzęcy	Animal Fat
+DESC_AnimalFat	Może być używane do robienia domowej kleju przy ogniskach.	Can be used to make home-made glue at campfires.
+EQUIPMENT_DuctTape	Taśma klejąca	Duct Tape
+DESC_DuctTape	Może być używane do naprawy broni.	Can be used to repair a weapon.
+EQUIPMENT_Glue	Klej	Glue
+DESC_Glue	Może być używane do wytwarzania taśmy klejącej w warsztacie.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_GunParts	Części broni	Gun Parts
+DESC_GunParts	Może być używane do tworzenia zestawów naprawczych do broni na warsztacie.	Can be used to craft gun repair kits at the workbench.
+EQUIPMENT_GunRepairKit	Zestaw naprawczy do broni	Gun Repair Kit
+DESC_GunRepairKit	Może być używane do naprawy broni.	Can be used to repair a gun.
+EQUIPMENT_HomemadeGlue	Domowa klej	Homemade Glue
+DESC_HomemadeGlue	Może być używane do wytwarzania taśmy klejącej w warsztacie.	Can be used to craft duct tape at the workbench.
+EQUIPMENT_JunkParts	Złomowane części	Junk Parts
+DESC_JunkParts	Może być używane do wytwarzania taśmy klejącej w warsztacie.	Can be used to craft duct tape at the workbench.
+RECIPE_MakeDuctTape	Zrób taśmę klejącą	Make Duct Tape
+RECIPE_MakeGunRepairKit	Zrób zestaw naprawczy do broni	Make Gun Repair Kit
+RECIPE_MakeHomemadeGlue	Zrób domowy klej	Make Homemade Glue
+SPEECH_HUD_ConfirmRepairWeapon	Użyjesz %1 z %2 do naprawy %3.	You will use %1 of %2 to repair %3.
+SPEECH_HUD_CantRepairInCombat	Nie możesz naprawić broni w trakcie walki.	You cannot repair weapons while in combat.
+SPEECH_HUD_NoDuctTape	Potrzebujesz taśmy izolacyjnej, aby to naprawić.	You need duct tape to repair this.
+SPEECH_HUD_NoGunRepairKit	Potrzebujesz zestawu naprawczego do broni, aby to naprawić.	You need a gun repair kit to repair this.
+SPEECH_HUD_NotDamaged	Ta broń nie jest uszkodzona, więc nie można jej naprawić.	This weapon is not damaged, so it can't be repaired.
+SPEECH_HUD_RepairWeapon	Naprawa	Repair
+SPEECH_HUD_DisassembleWeapon	Złomowana broń	Scrap Weapon
+SPEECH_HINT_YourWeaponBroke	Twój %1 się zepsuł!	Your %1 broke!
+SPEECH_NPCWeaponBroken	Moja broń się zepsuła!	My weapon broke!
