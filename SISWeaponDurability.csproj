@@ -37,23 +37,23 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>$(UnityResourceDir)\Assembly-CSharp.dll</HintPath>
     </Reference>
-	<Reference Include="Assembly-CSharp-firstpass">
+    <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>$(UnityResourceDir)\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-	<Reference Include="netstandard">
+    <Reference Include="netstandard">
       <HintPath>$(UnityResourceDir)\netstandard.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(UnityResourceDir)\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System"/>
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>$(UnityResourceDir)\UnityEngine.dll</HintPath>
-	</Reference>
+    </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>$(UnityResourceDir)\UnityEngine.AssetBundleModule.dll</HintPath>
-	</Reference>
+    </Reference>
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>$(UnityResourceDir)\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
@@ -65,38 +65,99 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SISWeaponDurability\AmmoWeapon_OnFired__Patch.cs" />
-    <Compile Include="SISWeaponDurability\AvailableAction_GetCaption__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Character_OnMeleeAttacked__Patch.cs" />
-    <Compile Include="SISWeaponDurability\EquipmentContainer_GetBestWeaponForShortcut__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Equipment_CanBeCombinedWith__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Equipment_CanBeCombined__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Equipment_GetBaseDamage__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Equipment_GetBasePrice__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Equipment_GetLiquidAmountBar__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Equipment_Init__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Equipment_Spawn__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Equipment_WantRareUpdate__Patch.cs" />
-    <Compile Include="SISWeaponDurability\GameCursor_AddEquipmentItemActions__Patch.cs" />
-    <Compile Include="SISWeaponDurability\GameImpl_SetPrototypeLookupsFromStory__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Hud_OnSelectedAction__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Hud_OnSelectedDisabledAction__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Main.cs" />
-    <Compile Include="SISWeaponDurability\MoveToAndChokeHold_OnDeactivate__Patch.cs" />
-    <Compile Include="SISWeaponDurability\MoveToAndChop_OnDeactivate__Patch.cs" />
-    <Compile Include="SISWeaponDurability\MoveToAndMine_OnDeactivate__Patch.cs" />
-    <Compile Include="SISWeaponDurability\MoveToAndSkin_OnAnimationEvent__Patch.cs" />
-    <Compile Include="SISWeaponDurability\MoveToAndSkin_OnDeactivate__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Properties\AssemblyInfo.cs" />
-    <Compile Include="SISWeaponDurability\Session_Load__Patch.cs" />
-    <Compile Include="SISWeaponDurability\Session_ProcessInputAction__Patch.cs" />
-    <Compile Include="SISWeaponDurability\SISWeaponDurability_Config.cs" />
-    <Compile Include="SISWeaponDurability\SISWeaponDurability_Settings.cs" />
-    <Compile Include="SISWeaponDurability\SISWeaponDurability_SettingsAddon.cs" />
-    <Compile Include="SISWeaponDurability\SISWeaponDurability_Utils.cs" />
-    <Compile Include="SISWeaponDurability\Story_OnLoadedAssetBundle__Patch.cs" />
-    <Compile Include="SISWeaponDurability\WeaponTypeSettings.cs" />
-    <Compile Include="SISWeaponDurability\WeaponTypeSettingsDefaults.cs" />
+    <Compile Include="Source\AmmoWeapon_OnFired__Patch.cs" />
+    <Compile Include="Source\AvailableAction_GetCaption__Patch.cs" />
+    <Compile Include="Source\Character_OnMeleeAttacked__Patch.cs" />
+    <Compile Include="Source\EquipmentContainer_GetBestWeaponForShortcut__Patch.cs" />
+    <Compile Include="Source\Equipment_CanBeCombinedWith__Patch.cs" />
+    <Compile Include="Source\Equipment_CanBeCombined__Patch.cs" />
+    <Compile Include="Source\Equipment_GetBaseDamage__Patch.cs" />
+    <Compile Include="Source\Equipment_GetBasePrice__Patch.cs" />
+    <Compile Include="Source\Equipment_GetLiquidAmountBar__Patch.cs" />
+    <Compile Include="Source\Equipment_Init__Patch.cs" />
+    <Compile Include="Source\Equipment_Spawn__Patch.cs" />
+    <Compile Include="Source\Equipment_WantRareUpdate__Patch.cs" />
+    <Compile Include="Source\GameCursor_AddEquipmentItemActions__Patch.cs" />
+    <Compile Include="Source\GameImpl_SetPrototypeLookupsFromStory__Patch.cs" />
+    <Compile Include="Source\Hud_OnSelectedAction__Patch.cs" />
+    <Compile Include="Source\Hud_OnSelectedDisabledAction__Patch.cs" />
+    <Compile Include="Source\Main.cs" />
+    <Compile Include="Source\MoveToAndChokeHold_OnDeactivate__Patch.cs" />
+    <Compile Include="Source\MoveToAndChop_OnDeactivate__Patch.cs" />
+    <Compile Include="Source\MoveToAndMine_OnDeactivate__Patch.cs" />
+    <Compile Include="Source\MoveToAndSkin_OnAnimationEvent__Patch.cs" />
+    <Compile Include="Source\MoveToAndSkin_OnDeactivate__Patch.cs" />
+    <Compile Include="Source\Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Session_Load__Patch.cs" />
+    <Compile Include="Source\Session_ProcessInputAction__Patch.cs" />
+    <Compile Include="Source\SISWeaponDurability_Config.cs" />
+    <Compile Include="Source\SISWeaponDurability_Settings.cs" />
+    <Compile Include="Source\SISWeaponDurability_SettingsAddon.cs" />
+    <Compile Include="Source\SISWeaponDurability_Utils.cs" />
+    <Compile Include="Source\Story_OnLoadedAssetBundle__Patch.cs" />
+    <Compile Include="Source\WeaponTypeSettings.cs" />
+    <Compile Include="Source\WeaponTypeSettingsDefaults.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SISWeaponDurabilityContinued\DLLs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Directory.Build.props" />
+    <None Include="SISWeaponDurabilityContinued\AssetBundles\sisweapondurability" />
+    <None Include="SISWeaponDurabilityContinued\AssetBundles\sisweapondurability.manifest" />
+    <None Include="SISWeaponDurabilityContinued\BrazilianPortuguese.tsv" />
+    <None Include="SISWeaponDurabilityContinued\English.tsv" />
+    <None Include="SISWeaponDurabilityContinued\French.tsv" />
+    <None Include="SISWeaponDurabilityContinued\German.tsv" />
+    <None Include="SISWeaponDurabilityContinued\Hungarian.tsv" />
+    <None Include="SISWeaponDurabilityContinued\Italian.tsv" />
+    <None Include="SISWeaponDurabilityContinued\Japanese.tsv" />
+    <None Include="SISWeaponDurabilityContinued\Korean.tsv" />
+    <None Include="SISWeaponDurabilityContinued\Lithuanian.tsv" />
+    <None Include="SISWeaponDurabilityContinued\Polish.tsv" />
+    <None Include="SISWeaponDurabilityContinued\Russian.tsv" />
+    <None Include="SISWeaponDurabilityContinued\SimplifiedChinese.tsv" />
+    <None Include="SISWeaponDurabilityContinued\Spanish.tsv" />
+    <None Include="SISWeaponDurabilityContinued\TraditionalChinese.tsv" />
+    <None Include="SISWeaponDurabilityContinued\Turkish.tsv" />
+    <None Include="SISWeaponDurabilityContinued\Ukrainian.tsv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="SISWeaponDurabilityContinued\CoverIcon.jpg" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\AnimalFat.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\DuctTape.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\Glue.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\GunParts.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\GunRepairKit.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\HomemadeGlue.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\Icons\AnimalFat.png" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\Icons\DuctTape.png" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\Icons\Glue.png" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\Icons\GunParts.png" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\Icons\GunPartsOld.png" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\Icons\GunRepairKit.png" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\Icons\HomemadeGlue.png" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\Icons\JunkParts.png" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\Icons\JunkPartsOld.png" />
+    <Content Include="SISWeaponDurabilityContinued\Equipment\JunkParts.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Images\1054510_3552.jpg" />
+    <Content Include="SISWeaponDurabilityContinued\Images\1054510_3553.jpg" />
+    <Content Include="SISWeaponDurabilityContinued\Images\1054510_3555.jpg" />
+    <Content Include="SISWeaponDurabilityContinued\Images\1054510_3556.jpg" />
+    <Content Include="SISWeaponDurabilityContinued\Images\1054510_3558.jpg" />
+    <Content Include="SISWeaponDurabilityContinued\Images\1054510_3561.jpg" />
+    <Content Include="SISWeaponDurabilityContinued\Images\1054510_3566.jpg" />
+    <Content Include="SISWeaponDurabilityContinued\Images\1054510_3567.jpg" />
+    <Content Include="SISWeaponDurabilityContinued\Images\1054510_3568.jpg" />
+    <Content Include="SISWeaponDurabilityContinued\Recipes.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Scripts\SISWeaponDurability.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Settings.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Settings_WeaponDurability.xml" />
+    <Content Include="SISWeaponDurabilityContinued\Settings_WeaponDurabilityAddon.xml" />
+    <Content Include="SISWeaponDurabilityContinued\SISWEAPONDURABILITYREWORKED.txt" />
+    <Content Include="SISWeaponDurabilityContinued\SteamDescription.txt" />
+    <Content Include="SISWeaponDurabilityContinued\Version.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
