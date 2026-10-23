@@ -51,7 +51,7 @@ public class Character_OnMeleeAttacked__Patch
 			bool flag2 = !SISWeaponDurability_Config.EnabledForMeleeWeapons && source.EquippedItem is MeleeWeapon;
 			if (!flag2)
 			{
-				bool flag3 = injuryType != 6 && injuryType != 5;
+				bool flag3 = injuryType != InjuryType.BluntObject && injuryType != InjuryType.SharpObject;
 				if (!flag3)
 				{
 					bool flag4 = SISWeaponDurability_Config.ExcludedWeapons.IndexOf(source.EquippedItem.GetPrototype().Name) != -1;
@@ -70,16 +70,16 @@ public class Character_OnMeleeAttacked__Patch
 								{
 									switch (injuryLocation)
 									{
-									case 0:
-									case 2:
-									case 3:
+									case InjuryLocation.Torso:
+									case InjuryLocation.LeftArm:
+									case InjuryLocation.RightArm:
 										num = SISWeaponDurability_Config.HitLocationTopModifierPcnt * num;
 										break;
-									case 1:
+									case InjuryLocation.Head:
 										num = SISWeaponDurability_Config.HitLocationHeadModifierPcnt * num;
 										break;
-									case 4:
-									case 5:
+									case InjuryLocation.LeftLeg:
+									case InjuryLocation.RightLeg:
 										num = SISWeaponDurability_Config.HitLocationBottomModifierPcnt * num;
 										break;
 									}

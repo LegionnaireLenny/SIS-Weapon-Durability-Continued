@@ -10,23 +10,19 @@ public class Hud_OnSelectedDisabledAction__Patch
 	{
 		Character actor = action.Actor;
 		BaseObject target = action.Target;
-		bool flag = actor != null && target != null;
-		if (flag)
+		if (actor != null && target != null)
 		{
-			bool flag2 = action.Enabled == 7005;
-			if (flag2)
+			if (action.Enabled == (CursorActionDisabledReason)7005)
 			{
 				GameImpl.Instance.ShowMessageBox(GameImpl.Translate("SPEECH_HUD_NoDuctTape"));
 				return false;
 			}
-			bool flag3 = action.Enabled == 7004;
-			if (flag3)
+			if (action.Enabled == (CursorActionDisabledReason)7004)
 			{
 				GameImpl.Instance.ShowMessageBox(GameImpl.Translate("SPEECH_HUD_NoGunRepairKit"));
 				return false;
 			}
-			bool flag4 = action.Enabled == 7006;
-			if (flag4)
+			if (action.Enabled == (CursorActionDisabledReason)7006)
 			{
 				GameImpl.Instance.ShowMessageBox(GameImpl.Translate("SPEECH_HUD_CantRepairInCombat"));
 				return false;

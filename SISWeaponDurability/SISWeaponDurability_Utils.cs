@@ -24,7 +24,12 @@ public class SISWeaponDurability_Utils
 	// Token: 0x06000054 RID: 84 RVA: 0x00004558 File Offset: 0x00002758
 	public static bool IsPrototypeMeleeWeapon(EquipmentPrototype equip)
 	{
-		return equip.CanBeEquipped && (equip.TypeName == 17 || equip.TypeName == 120 || equip.TypeName == 165 || equip.TypeName == 147 || equip.TypeName == 123);
+		return equip.CanBeEquipped && 
+			(equip.TypeName == BaseObjectType.MeleeWeapon ||
+            equip.TypeName == BaseObjectType.HuntingKnife ||
+            equip.TypeName == BaseObjectType.Axe || 
+			equip.TypeName == BaseObjectType.Shovel || 
+			equip.TypeName == BaseObjectType.Pickaxe);
 	}
 
 	// Token: 0x06000055 RID: 85 RVA: 0x000045B0 File Offset: 0x000027B0
@@ -39,7 +44,15 @@ public class SISWeaponDurability_Utils
 	// Token: 0x06000056 RID: 86 RVA: 0x000045E4 File Offset: 0x000027E4
 	public static bool IsPrototypeAmmoWeapon(EquipmentPrototype equip)
 	{
-		return equip.CanBeEquipped && (equip.TypeName == 5 || equip.TypeName == 7 || equip.TypeName == 8 || equip.TypeName == 6 || equip.TypeName == 126 || equip.TypeName == 208 || equip.InjuryType == null || equip.InjuryType == 1);
+		return equip.CanBeEquipped && 
+			(equip.TypeName == BaseObjectType.Pistol || 
+			equip.TypeName == BaseObjectType.Shotgun || 
+			equip.TypeName == BaseObjectType.AssaultRifle || 
+			equip.TypeName == BaseObjectType.SniperRifle || 
+			equip.TypeName == BaseObjectType.Bow || 
+			equip.TypeName == BaseObjectType.Gun || 
+			equip.InjuryType == InjuryType.Bullet || 
+			equip.InjuryType == InjuryType.Arrow);
 	}
 
 	// Token: 0x06000057 RID: 87 RVA: 0x00004650 File Offset: 0x00002850

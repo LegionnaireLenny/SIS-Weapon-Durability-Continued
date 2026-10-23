@@ -12,19 +12,16 @@ public class Hud_OnSelectedAction__Patch
 		if (!flag)
 		{
 			Equipment equipment = action.Target as Equipment;
-			bool flag2 = equipment == null;
-			if (!flag2)
+			if (equipment != null)
 			{
-				bool flag3 = action.ActionType == 2032;
-				if (flag3)
+				if (action.ActionType == (CursorAction)2032)
 				{
 					EquipmentPrototype equipmentPrototype = ((equipment is MeleeWeapon || equipment is Bow) ? SISWeaponDurability_Utils.DuctTape : SISWeaponDurability_Utils.GunRepairKit);
 					int amountPartsToRepair = SISWeaponDurability_Utils.GetAmountPartsToRepair(equipment);
 					GameImpl.Instance.ShowConfirmationBox(GameImpl.Translate("SPEECH_HUD_ConfirmRepairWeapon").Replace("%1", amountPartsToRepair.ToString()).Replace("%2", GameImpl.Translate(equipmentPrototype.NameHash))
 						.Replace("%3", equipment.GetDisplayNameString()), delegate(InputFrame inputFrame2)
 					{
-						InputAction inputAction;
-						inputAction..ctor(2032);
+						InputAction inputAction = new InputAction((InputActionType)2032);
 						inputAction.ObjectId = action.Target.Id;
 						inputAction.SetObject(action.Target);
 						inputFrame.AddAction(inputAction);

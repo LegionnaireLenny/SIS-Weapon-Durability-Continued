@@ -10,7 +10,7 @@ public class GameCursor_AddEquipmentItemActions__Patch
 	{
 		for (int i = __instance.AvailableActions.Count - 1; i >= 0; i--)
 		{
-			bool flag = __instance.AvailableActions[i].ActionType == 246 && __instance.AvailableActions[i].Recipe != null;
+			bool flag = __instance.AvailableActions[i].ActionType == CursorAction.Craft && __instance.AvailableActions[i].Recipe != null;
 			if (flag)
 			{
 				__instance.AvailableActions.RemoveAt(i);
@@ -27,8 +27,8 @@ public class GameCursor_AddEquipmentItemActions__Patch
 			bool flag2 = item != null;
 			if (flag2)
 			{
-				CursorActionDisabledReason cursorActionDisabledReason = ((controlledCharacter.Consciousness == 2 || controlledCharacter.Consciousness == 3) ? 1 : 0);
-				CursorActionDisabledReason cursorActionDisabledReason2 = ((GameCursor.IsTargetCharacterInCombat(controlledCharacter) && controlledCharacter.IsOutdoors()) ? 7006 : cursorActionDisabledReason);
+				CursorActionDisabledReason cursorActionDisabledReason = ((controlledCharacter.Consciousness == Consciousness.Unconscious || controlledCharacter.Consciousness == Consciousness.Dead) ? CursorActionDisabledReason.Disabled : CursorActionDisabledReason.Enabled);
+				CursorActionDisabledReason cursorActionDisabledReason2 = ((GameCursor.IsTargetCharacterInCombat(controlledCharacter) && controlledCharacter.IsOutdoors()) ? (CursorActionDisabledReason)7006 : cursorActionDisabledReason);
 				float maxDurabilityForEquipment = SISWeaponDurability_Config.GetMaxDurabilityForEquipment(item.GetPrototype().Name, item is AmmoWeapon);
 				bool flag3 = item is MeleeWeapon || item is Bow;
 				if (flag3)
@@ -37,8 +37,8 @@ public class GameCursor_AddEquipmentItemActions__Patch
 					if (!flag4)
 					{
 						int amountPartsToRepair = SISWeaponDurability_Utils.GetAmountPartsToRepair(item);
-						CursorActionDisabledReason cursorActionDisabledReason3 = ((controlledCharacter.Inventory.CountItemsOfType(SISWeaponDurability_Utils.DuctTape) >= amountPartsToRepair) ? cursorActionDisabledReason2 : 7005);
-						__instance.AvailableActions.Add(new AvailableAction(2032, controlledCharacter, item, (item.GetDampness() < maxDurabilityForEquipment) ? cursorActionDisabledReason3 : 1));
+						CursorActionDisabledReason cursorActionDisabledReason3 = ((controlledCharacter.Inventory.CountItemsOfType(SISWeaponDurability_Utils.DuctTape) >= amountPartsToRepair) ? cursorActionDisabledReason2 : (CursorActionDisabledReason)7005);
+						__instance.AvailableActions.Add(new AvailableAction((CursorAction)2032, controlledCharacter, item, (item.GetDampness() < maxDurabilityForEquipment) ? cursorActionDisabledReason3 : CursorActionDisabledReason.Disabled));
 					}
 				}
 				else
@@ -49,8 +49,8 @@ public class GameCursor_AddEquipmentItemActions__Patch
 						bool flag6 = item.GetDampness() == maxDurabilityForEquipment;
 						if (!flag6)
 						{
-							CursorActionDisabledReason cursorActionDisabledReason4 = ((controlledCharacter.Inventory.CountItemsOfType(SISWeaponDurability_Utils.GunRepairKit) >= 1) ? cursorActionDisabledReason2 : 7004);
-							__instance.AvailableActions.Add(new AvailableAction(2032, controlledCharacter, item, (item.GetDampness() < maxDurabilityForEquipment) ? cursorActionDisabledReason4 : 1));
+							CursorActionDisabledReason cursorActionDisabledReason4 = ((controlledCharacter.Inventory.CountItemsOfType(SISWeaponDurability_Utils.GunRepairKit) >= 1) ? cursorActionDisabledReason2 : (CursorActionDisabledReason)7004);
+							__instance.AvailableActions.Add(new AvailableAction((CursorAction)2032, controlledCharacter, item, (item.GetDampness() < maxDurabilityForEquipment) ? cursorActionDisabledReason4 : CursorActionDisabledReason.Disabled));
 						}
 					}
 				}
