@@ -1,6 +1,12 @@
 ## Changelog
-- Disassembling ranged weapons give parts based on the weapon type instead of defaulting to junk parts when the weapon is not defined in Settings_WeaponDurability.xml
 - Fixed bug that prevented chopping trees from degrading axes (previously it checked if a hunting knife was equipped instead of an axe)
-- Fixed bug that prevented repairing firearms if the character didn't also have duct tape
-- Added additional error handling to mitigate crashing when skinning creatures
-- Code cleanup and minor optimizations
+- Fixed bug that prevented repairing firearms if the character didn't also have duct tape in their inventory
+- Disassembling ranged weapons now gives parts based on the weapon type instead of defaulting to junk parts when the weapon is not defined in Settings_WeaponDurability.xml or Settings_WeaponDurabilityAddon.xml
+- Changed the 0.5x multiplier to weapon base damage to 1x and made it a setting in Settings_WeaponDurability.xml (it wasn't mentioned anywhere, so I assume it was unintentional)
+- Changed weapon damage to be reduced after durability drops below certain thresholds rather than decreasing linearly with durability
+- Added option to get animal fat from skinning humans
+- Added option to get animal fat from skinning zombies
+- Separated DefaultAmmoWeaponDurability into DefaultGunDurability and DefaultBowDurability
+- Exposed additional settings to XML serialization and added them to the default Settings_WeaponDurability.xml
+- Added additional error handling to mitigate crashing when skinning
+- Refactoring, code improvements, and cleanup
