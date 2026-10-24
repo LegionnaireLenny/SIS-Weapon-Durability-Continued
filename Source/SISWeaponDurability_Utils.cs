@@ -19,6 +19,18 @@ public class SISWeaponDurability_Utils
 		SISWeaponDurability_Utils.GunParts = GameImpl.Instance.FindEquipmentPrototypeByName("GunParts");
 	}
 
+	public static string GetDisassemblyPrototypeName(EquipmentPrototype equipment)
+	{
+		if (IsPrototypeGun(equipment))
+		{
+			return SISWeaponDurability_Config.GunPartPrototypeName;
+		}
+		else
+		{
+			return SISWeaponDurability_Config.WeaponPartPrototypeName;
+		}
+	}
+
 	public static bool IsPrototypeMeleeWeapon(EquipmentPrototype equip)
 	{
 		return equip.CanBeEquipped && 
@@ -26,31 +38,44 @@ public class SISWeaponDurability_Utils
             equip.TypeName == BaseObjectType.HuntingKnife ||
             equip.TypeName == BaseObjectType.Axe || 
 			equip.TypeName == BaseObjectType.Shovel || 
-			equip.TypeName == BaseObjectType.Pickaxe);
+			equip.TypeName == BaseObjectType.Pickaxe ||
+            equip.InjuryType == InjuryType.SharpObject ||
+            equip.InjuryType == InjuryType.BluntObject);
 	}
 
-	public static void SetStatusBarMsgWithTimeout(string msg, float timeout)
+	public static bool IsPrototypeBow(EquipmentPrototype equip)
 	{
-		HudBehaviour.Instance.StatusBarMsg = msg;
-		HudBehaviour.Instance.StatusBarMsgTimeout = timeout;
-		HudBehaviour.Instance.StatusBarMsgShowForOneFrame = false;
-		HudBehaviour.Instance.StatusBarMsgAction = default(AvailableAction);
+		return equip.CanBeEquipped && 
+			(equip.TypeName == BaseObjectType.Bow || 
+			equip.InjuryType == InjuryType.Arrow);
 	}
 
-	public static bool IsPrototypeAmmoWeapon(EquipmentPrototype equip)
+	public static bool IsPrototypeGun(EquipmentPrototype equip)
 	{
 		return equip.CanBeEquipped && 
 			(equip.TypeName == BaseObjectType.Pistol || 
 			equip.TypeName == BaseObjectType.Shotgun || 
 			equip.TypeName == BaseObjectType.AssaultRifle || 
 			equip.TypeName == BaseObjectType.SniperRifle || 
-			equip.TypeName == BaseObjectType.Bow || 
 			equip.TypeName == BaseObjectType.Gun || 
-			equip.InjuryType == InjuryType.Bullet || 
-			equip.InjuryType == InjuryType.Arrow);
+			equip.InjuryType == InjuryType.Bullet);
 	}
 
-	public static float ReduceDurability(Equipment equip, float amount = 1f)
+    public static bool IsPrototypeAmmoWeapon(EquipmentPrototype equip)
+    {
+        return IsPrototypeBow(equip) || IsPrototypeGun(equip);
+    }
+
+    public static void SetStatusBarMsgWithTimeout(string msg, float timeout)
+    {
+        HudBehaviour.Instance.StatusBarMsg = msg;
+        HudBehaviour.Instance.StatusBarMsgTimeout = timeout;
+        HudBehaviour.Instance.StatusBarMsgShowForOneFrame = false;
+        HudBehaviour.Instance.StatusBarMsgAction = default;
+    }
+
+
+    public static float ReduceDurability(Equipment equip, float amount = 1f)
 	{
         float num;
 		if (amount == 0f || equip == null)
@@ -167,8 +192,8 @@ public class SISWeaponDurability_Utils
         asCharacter.Inventory.Remove(asCharacter, equip);
         if (equipmentPrototype != null)
         {
-            int weaponMinPartsOnBroken = SISWeaponDurability_Config.GetWeaponMinPartsOnBroken(equip.GetPrototype().Name);
-            int weaponMaxPartsOnBroken = SISWeaponDurability_Config.GetWeaponMaxPartsOnBroken(equip.GetPrototype().Name);
+            int weaponMinPartsOnBroken = SISWeaponDurability_Config.GetWeaponMinPartsOnBroken(equip);
+            int weaponMaxPartsOnBroken = SISWeaponDurability_Config.GetWeaponMaxPartsOnBroken(equip);
             int num = SISWeaponDurability_Utils.NextBetweenInts(asCharacter, weaponMinPartsOnBroken, weaponMaxPartsOnBroken, 1);
             if (num > 0 && asCharacter != null)
             {

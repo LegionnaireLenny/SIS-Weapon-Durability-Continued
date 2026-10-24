@@ -10,7 +10,7 @@ public class MoveToAndChokeHold_OnDeactivate__Patch
             SISWeaponDurability_Config.AssassinationReducesDurability &&
             character.EquippedItem is HuntingKnife)
 		{
-			WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(character.EquippedItem.GetPrototype().Name, false);
+			WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(character.EquippedItem);
 			SISWeaponDurability_Utils.ReduceDurability(character.EquippedItem, SISWeaponDurability_Config.AssassinationDurabilityDegradePercentage * weaponModifiersForEquipment.MaxDurability);
 		}
 	}

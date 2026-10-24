@@ -17,7 +17,7 @@ public class Equipment_GetLiquidAmountBar__Patch
             return true;
         }
 
-        amount = __instance.GetDampness() / SISWeaponDurability_Config.GetMaxDurabilityForEquipment(__instance.GetPrototype().Name, __instance is AmmoWeapon);
+        amount = __instance.GetDampness() / SISWeaponDurability_Config.GetMaxDurabilityForEquipment(__instance);
         if (amount == 0f)
         {
             return true;

@@ -1,19 +1,38 @@
 <?xml version="1.0"?>
 <SISWeaponDurability_Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LoggingEnabled>false</LoggingEnabled>
   <EnabledForPlayerCommunity>true</EnabledForPlayerCommunity>
   <EnabledForNPCs>false</EnabledForNPCs>
   <EnabledForMeleeWeapons>true</EnabledForMeleeWeapons>
   <EnabledForAmmoWeapons>true</EnabledForAmmoWeapons>
-  <GlobalDurabilityDegradeRate>1</GlobalDurabilityDegradeRate>
-  <ChanceAnimalFatOnSkin>0.75</ChanceAnimalFatOnSkin>
-  <DefaultMeleeWeaponDurability>20</DefaultMeleeWeaponDurability>
-  <DefaultAmmoWeaponDurability>300</DefaultAmmoWeaponDurability>
+  <SkinningReducesDurability>true</SkinningReducesDurability>
+  <SkinningDurabilityDegradePercentage>0.05</SkinningDurabilityDegradePercentage>
+  <ChoppingReducesDurability>true</ChoppingReducesDurability>
+  <ChoppingDurabilityDegradePercentage>0.05</ChoppingDurabilityDegradePercentage>
+  <MiningReducesDurability>true</MiningReducesDurability>
+  <MiningDurabilityDegradePercentage>0.05</MiningDurabilityDegradePercentage>
+  <AssassinationReducesDurability>true</AssassinationReducesDurability>
+  <AssassinationDurabilityDegradePercentage>0.05</AssassinationDurabilityDegradePercentage>
   <WeaponsSpawnWithLessDurability>true</WeaponsSpawnWithLessDurability>
+  <MinWeaponDurabilityOnSpawnPcnt>0.35</MinWeaponDurabilityOnSpawnPcnt>
+  <MaxWeaponDurabilityOnSpawnPcnt>0.8</MaxWeaponDurabilityOnSpawnPcnt>
   <HitLocationAffectsDegradation>true</HitLocationAffectsDegradation>
+  <HitLocationHeadModifierPcnt>0.95</HitLocationHeadModifierPcnt>
+  <HitLocationTopModifierPcnt>1.1</HitLocationTopModifierPcnt>
+  <HitLocationBottomModifierPcnt>1</HitLocationBottomModifierPcnt>
   <ShowEquipmentNotificationOnWeaponBroken>true</ShowEquipmentNotificationOnWeaponBroken>
   <ShowStatusMsgOnWeaponBroken>false</ShowStatusMsgOnWeaponBroken>
   <CharactersSpeakOnWeaponBroken>true</CharactersSpeakOnWeaponBroken>
   <PlaySoundOnWeaponBroken>true</PlaySoundOnWeaponBroken>
+  <GlobalWeaponBaseDamageMultiplier>1</GlobalWeaponBaseDamageMultiplier>
+  <GlobalDurabilityDegradeRate>1</GlobalDurabilityDegradeRate>
+  <DefaultMeleeWeaponDurability>20</DefaultMeleeWeaponDurability>
+  <DefaultBowDurability>300</DefaultBowDurability>
+  <DefaultGunDurability>300</DefaultGunDurability>
+  <DurabilityDamageReductionThresholdCount>5</DurabilityDamageReductionThresholdCount>
+  <ChanceAnimalFatOnSkinAnimal>0.75</ChanceAnimalFatOnSkinAnimal>
+  <ChanceAnimalFatOnSkinHuman>0.5</ChanceAnimalFatOnSkinHuman>
+  <ChanceAnimalFatOnSkinZombie>0.25</ChanceAnimalFatOnSkinZombie>
   <WeaponDurabilityBarColor>
     <r>255</r>
     <g>221</g>

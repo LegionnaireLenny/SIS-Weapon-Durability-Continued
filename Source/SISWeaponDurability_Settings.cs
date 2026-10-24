@@ -38,85 +38,61 @@ public class SISWeaponDurability_Settings
 				new WeaponTypeSettings("EliteGolfClub", 1f, 80f, 2, 4),
 				new WeaponTypeSettings("AntiqueKatana", 1f, 80f, 2, 4),
 				new WeaponTypeSettings("Bow", 1f, 150f, 0, 2),
-				new WeaponTypeSettings("Pistol", "GunParts", 1f, 600f, 1, 2),
-				new WeaponTypeSettings("SilencedPistol", "GunParts", 1f, 600f, 1, 2),
-				new WeaponTypeSettings("ModifiedPistol", "GunParts", 1f, 600f, 1, 2),
-				new WeaponTypeSettings("Shotgun", "GunParts", 1f, 600f, 2, 3),
-				new WeaponTypeSettings("AssaultRifle2", "GunParts", 1f, 800f, 2, 3),
-				new WeaponTypeSettings("SniperRifle", "GunParts", 1f, 800f, 2, 3),
-				new WeaponTypeSettings("AssaultRifle", "GunParts", 1f, 800f, 2, 3),
-				new WeaponTypeSettings("SilencedSniperRifle", "GunParts", 1f, 800f, 2, 3)
+				new WeaponTypeSettings("Pistol", 1f, 600f, 1, 2, false),
+				new WeaponTypeSettings("SilencedPistol", 1f, 600f, 1, 2, false),
+				new WeaponTypeSettings("ModifiedPistol", 1f, 600f, 1, 2, false),
+				new WeaponTypeSettings("Shotgun", 1f, 600f, 2, 3, false),
+				new WeaponTypeSettings("AssaultRifle2", 1f, 800f, 2, 3, false),
+				new WeaponTypeSettings("SniperRifle", 1f, 800f, 2, 3, false),
+				new WeaponTypeSettings("AssaultRifle", 1f, 800f, 2, 3, false),
+				new WeaponTypeSettings("SilencedSniperRifle", 1f, 800f, 2, 3, false)
 			},
 			ExcludedWeapons = { "ExcludedWeaponPrototypeName" }
 		};
 	}
 
-	public bool EnabledForPlayerCommunity = true;
-
+    public bool LoggingEnabled = false;
+    public bool EnabledForPlayerCommunity = true;
 	public bool EnabledForNPCs = false;
-
 	public bool EnabledForMeleeWeapons = true;
-
 	public bool EnabledForAmmoWeapons = true;
 
-	public float GlobalDurabilityDegradeRate = 1f;
+	public bool SkinningReducesDurability = true;
+	public float SkinningDurabilityDegradePercentage = 0.05f;
 
-	public float ChanceAnimalFatOnSkin = 0.75f;
+	public bool ChoppingReducesDurability = true;
+	public float ChoppingDurabilityDegradePercentage = 0.05f;
 
-	public float DefaultMeleeWeaponDurability = 20f;
+	public bool MiningReducesDurability = true;
+	public float MiningDurabilityDegradePercentage = 0.05f;
 
-	public float DefaultAmmoWeaponDurability = 300f;
+	public bool AssassinationReducesDurability = true;
+	public float AssassinationDurabilityDegradePercentage = 0.05f;
 
 	public bool WeaponsSpawnWithLessDurability = true;
-
-	[XmlIgnore]
 	public float MinWeaponDurabilityOnSpawnPcnt = 0.35f;
-
-	[XmlIgnore]
 	public float MaxWeaponDurabilityOnSpawnPcnt = 0.8f;
 
 	public bool HitLocationAffectsDegradation = true;
-
-	[XmlIgnore]
+	public float HitLocationHeadModifierPcnt = 0.95f;
 	public float HitLocationTopModifierPcnt = 1.1f;
-
-	[XmlIgnore]
 	public float HitLocationBottomModifierPcnt = 1f;
 
-	[XmlIgnore]
-	public float HitLocationHeadModifierPcnt = 0.95f;
-
 	public bool ShowEquipmentNotificationOnWeaponBroken = true;
-
 	public bool ShowStatusMsgOnWeaponBroken = false;
-
 	public bool CharactersSpeakOnWeaponBroken = true;
-
 	public bool PlaySoundOnWeaponBroken = true;
 
-	[XmlIgnore]
-	public bool SkinningReducesDurability = true;
+	public float GlobalWeaponBaseDamageMultiplier = 1f;
+	public float GlobalDurabilityDegradeRate = 1f;
+	public float DefaultMeleeWeaponDurability = 20f;
+	public float DefaultBowDurability = 300f;
+	public float DefaultGunDurability = 300f;
+	public int DurabilityDamageReductionThresholdCount = 5;
 
-	[XmlIgnore]
-	public bool ChoppingReducesDurability = true;
-
-	[XmlIgnore]
-	public bool MiningReducesDurability = true;
-
-	[XmlIgnore]
-	public bool AssassinationReducesDurability = true;
-
-	[XmlIgnore]
-	public float SkinningDurabilityDegradePercentage = 0.05f;
-
-	[XmlIgnore]
-	public float ChoppingDurabilityDegradePercentage = 0.05f;
-
-	[XmlIgnore]
-	public float MiningDurabilityDegradePercentage = 0.05f;
-
-	[XmlIgnore]
-	public float AssassinationDurabilityDegradePercentage = 0.05f;
+	public float ChanceAnimalFatOnSkinAnimal = 0.75f;
+	public float ChanceAnimalFatOnSkinHuman = 0.50f;
+	public float ChanceAnimalFatOnSkinZombie = 0.25f;
 
 	public Color32 WeaponDurabilityBarColor = new Color32(byte.MaxValue, 221, 0, byte.MaxValue);
 

@@ -20,14 +20,16 @@ public class MoveToAndSkin_OnAnimationEvent__Patch
         Character targetCharacter = parent.GetTargetCharacter();
         if (targetCharacter == null || 
             targetCharacter.SkinnedAmount >= 1.0 || 
-            !(targetCharacter is Animal) ||
-            SISWeaponDurability_Utils.NextFloat(character) >= SISWeaponDurability_Config.ChanceAnimalFatOnSkin)
+            (targetCharacter is Human && targetCharacter.Zombie && SISWeaponDurability_Config.ChanceAnimalFatOnSkinZombie <= 0) ||
+            (targetCharacter is Human && targetCharacter.Zombie && SISWeaponDurability_Utils.NextFloat(character) >= SISWeaponDurability_Config.ChanceAnimalFatOnSkinZombie) ||
+            (targetCharacter is Human && !targetCharacter.Zombie && SISWeaponDurability_Config.ChanceAnimalFatOnSkinHuman <= 0) ||
+            (targetCharacter is Human && !targetCharacter.Zombie && SISWeaponDurability_Utils.NextFloat(character) >= SISWeaponDurability_Config.ChanceAnimalFatOnSkinHuman) ||
+            (targetCharacter is Animal && SISWeaponDurability_Config.ChanceAnimalFatOnSkinAnimal <= 0) ||
+            (targetCharacter is Animal && SISWeaponDurability_Utils.NextFloat(character) >= SISWeaponDurability_Config.ChanceAnimalFatOnSkinAnimal))
         {
             return;
         }
 
-        // TODO: Human check is redundant since the function returns if the target isn't an animal
-        // Add option to get fat from humans
         int num = 0;
         if (targetCharacter is Human)
         {

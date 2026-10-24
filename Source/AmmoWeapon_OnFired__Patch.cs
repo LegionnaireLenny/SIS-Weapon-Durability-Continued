@@ -16,7 +16,7 @@ public class AmmoWeapon_OnFired__Patch
 			return;
 		}
 
-		WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(__instance.GetPrototype().Name, false);
+		WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(__instance);
 		SISWeaponDurability_Utils.ReduceDurability(__instance, 1f * weaponModifiersForEquipment.DegradeRate * SISWeaponDurability_Config.GlobalDurabilityDegradeRate);
 	}
 }

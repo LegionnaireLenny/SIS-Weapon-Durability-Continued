@@ -54,7 +54,7 @@ public class Character_OnMeleeAttacked__Patch
             return;
         }
 
-        WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(source.EquippedItem.GetPrototype().Name, false);
+        WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(source.EquippedItem);
         float num = 1f * weaponModifiersForEquipment.DegradeRate * SISWeaponDurability_Config.GlobalDurabilityDegradeRate;
         bool hitLocationAffectsDegradation = SISWeaponDurability_Config.HitLocationAffectsDegradation;
         if (hitLocationAffectsDegradation)

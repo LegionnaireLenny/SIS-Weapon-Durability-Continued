@@ -43,7 +43,7 @@ public class Session_ProcessInputAction__Patch
         if (num > 0)
         {
             SISWeaponDurability_Config.Log("Repairing " + equipment.GetDisplayNameString());
-            float maxDurabilityForEquipment = SISWeaponDurability_Config.GetMaxDurabilityForEquipment(equipment.GetPrototype().Name, equipment is AmmoWeapon);
+            float maxDurabilityForEquipment = SISWeaponDurability_Config.GetMaxDurabilityForEquipment(equipment);
             equipment.SetDampness(Mathf.Min(maxDurabilityForEquipment, equipment.GetDampness() + 0.4f * maxDurabilityForEquipment));
             SoundManager.PlaySound3D(repairSound, playerRecord.PlayerCharacter.Pos, 1f);
         }

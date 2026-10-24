@@ -30,7 +30,7 @@ public class GameCursor_AddEquipmentItemActions__Patch
         {
             cursorActionDisabledReason = Main.CantRepairInCombat;
         }
-        else if (item.GetDampness() >= SISWeaponDurability_Config.GetMaxDurabilityForEquipment(item.GetPrototype().Name, item is AmmoWeapon))
+        else if (item.GetDampness() >= SISWeaponDurability_Config.GetMaxDurabilityForEquipment(item))
         {
             cursorActionDisabledReason = Main.ItemNotDamaged;
         }

@@ -5,7 +5,7 @@ public class Equipment_GetBasePrice__Patch
 {
 	private static void Postfix(ref float __result, Equipment __instance)
 	{
-		float maxDurabilityForEquipment = SISWeaponDurability_Config.GetMaxDurabilityForEquipment(__instance.GetPrototype().Name, __instance is AmmoWeapon);
+		float maxDurabilityForEquipment = SISWeaponDurability_Config.GetMaxDurabilityForEquipment(__instance);
         if ((__instance is MeleeWeapon || __instance is AmmoWeapon) && __instance.GetDampness() < maxDurabilityForEquipment)
 		{
 			float dampness = __instance.GetDampness();

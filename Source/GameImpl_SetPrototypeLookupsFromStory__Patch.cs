@@ -14,7 +14,7 @@ public class GameImpl_SetPrototypeLookupsFromStory__Patch
 
         Recipe recipe = new Recipe();
         recipe.UniqueID = SISWeaponDurability_Config.DisassembleMeleeWeaponWorkbenchRecipeUniqueId + "_" + equip.Name;
-        WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(equip.Name, false);
+        WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(equip);
         recipe.NativeName = "Scrap Weapon";
         recipe.ShowRecipe = ShowRecipe.IfAllIngredientsFound;
         recipe.CraftingStationType = "WorkBench";
@@ -45,7 +45,7 @@ public class GameImpl_SetPrototypeLookupsFromStory__Patch
 
         Recipe recipe = new Recipe();
         recipe.UniqueID = SISWeaponDurability_Config.DisassembleGunWorkbenchRecipeUniqueId + "_" + equip.Name;
-        WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(equip.Name, false);
+        WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(equip);
         recipe.NativeName = "Scrap Weapon";
         recipe.ShowRecipe = ShowRecipe.IfAllIngredientsFound;
         recipe.CraftingStationType = "WorkBench";
@@ -54,7 +54,7 @@ public class GameImpl_SetPrototypeLookupsFromStory__Patch
         recipe.SkillLevel = 2;
         recipe.ProductAmount = weaponModifiersForEquipment.MaxPartsOnBroken + 1;
         recipe.IsDisassembly = true;
-        recipe.ProductPrototypeName = equip.InjuryType == InjuryType.Arrow ? SISWeaponDurability_Config.WeaponPartPrototypeName : SISWeaponDurability_Config.GunPartPrototypeName;
+        recipe.ProductPrototypeName = SISWeaponDurability_Utils.GetDisassemblyPrototypeName(equip);
         recipe.SkillProgression = 1;
         recipe.CraftingTime = 15f;
         recipe.NameHash = StringUtil.JenkinsHash(SISWeaponDurability_Config.DisassembleWeaponRecipeNameKey);
