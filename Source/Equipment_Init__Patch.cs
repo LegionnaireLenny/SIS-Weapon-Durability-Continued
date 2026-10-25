@@ -7,8 +7,7 @@ public class Equipment_Init__Patch
 	{
         if ((__instance is MeleeWeapon || __instance is AmmoWeapon) && __instance.GetDampness() == 0f)
 		{
-			WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(__instance);
-			__instance.SetDampness(weaponModifiersForEquipment.MaxDurability);
+            __instance.SetDampness(SISWeaponDurability_Config.GetWeaponModifiersForEquipment(__instance).MaxDurability);
 		}
 	}
 }

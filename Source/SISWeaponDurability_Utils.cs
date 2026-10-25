@@ -226,22 +226,13 @@ public class SISWeaponDurability_Utils
 	}
 
 	public static EquipmentPrototype DuctTape;
-
 	public static EquipmentPrototype GunRepairKit;
-
 	public static EquipmentPrototype Glue;
-
 	public static EquipmentPrototype JunkParts;
-
 	public static EquipmentPrototype GunParts;
 
 	public static Color32 Pristine = new Color32(114, 181, 13, byte.MaxValue);
-
 	public static Color32 Used = new Color32(224, 213, 0, byte.MaxValue);
-
 	public static Color32 Damaged = new Color32(224, 142, 0, byte.MaxValue);
-
 	public static Color32 VeryDamaged = new Color32(224, 41, 0, byte.MaxValue);
-
-	private static global::System.Random random = new global::System.Random();
 }

@@ -11,10 +11,11 @@ public class Equipment_GetBaseDamage__Patch
 		{
             float currentDurability = __instance.GetDampness();
             float durabilityPercent = currentDurability / maxDurabilityForEquipment;
-            int reductionIncrements = SISWeaponDurability_Config.DurabilityDamageReductionThresholdCount;
-
-            __result = __instance.GetPrototype().Damage * (Mathf.Ceil(durabilityPercent * reductionIncrements) / reductionIncrements) * SISWeaponDurability_Config.GlobalWeaponBaseDamageMultiplier;
-            SISWeaponDurability_Config.Log($"{__instance.GetPrototype().Name} | Durability: {currentDurability}/{maxDurabilityForEquipment} | Damaged: x{(Mathf.Ceil(durabilityPercent * reductionIncrements) / reductionIncrements)} | Global: x{SISWeaponDurability_Config.GlobalWeaponBaseDamageMultiplier} | Damage: {__instance.GetPrototype().Damage} -> {__result}");
+            float minDamage = __instance.GetPrototype().Damage * SISWeaponDurability_Config.DeterioratedWeaponMinimumDamagePercent;
+            float deteriorationMultiplier = Mathf.Log10(durabilityPercent * 10);
+            float damage = __instance.GetPrototype().Damage * deteriorationMultiplier * SISWeaponDurability_Config.GlobalWeaponBaseDamageMultiplier;
+            __result = Mathf.Clamp(damage, minDamage, __instance.GetPrototype().Damage);
+            SISWeaponDurability_Config.Log($"{__instance.GetPrototype().Name} | Durability: {currentDurability}/{maxDurabilityForEquipment} | Deterioration: x{deteriorationMultiplier} | Global: x{SISWeaponDurability_Config.GlobalWeaponBaseDamageMultiplier} | Damage: {__instance.GetPrototype().Damage} -> {__result}");
         }
     }
 }

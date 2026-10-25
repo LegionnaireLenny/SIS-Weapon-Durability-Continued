@@ -39,8 +39,7 @@ public class Session_ProcessInputAction__Patch
             return;
         }
 
-        int num = playerRecord.PlayerCharacter.Inventory.UseItemOfType(playerRecord.PlayerCharacter, playerRecord.PlayerCharacter, equipmentPrototype, 1, false, out InfectionType infectionType, 0, false);
-        if (num > 0)
+        if (playerRecord.PlayerCharacter.Inventory.UseItemOfType(playerRecord.PlayerCharacter, playerRecord.PlayerCharacter, equipmentPrototype, 1, false, out InfectionType infectionType, 0, false) > 0)
         {
             SISWeaponDurability_Config.Log("Repairing " + equipment.GetDisplayNameString());
             float maxDurabilityForEquipment = SISWeaponDurability_Config.GetMaxDurabilityForEquipment(equipment);

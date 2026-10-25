@@ -211,15 +211,17 @@ public class SISWeaponDurability_Config
 		SISWeaponDurability_Config.ShowEquipmentNotificationOnWeaponBroken = obj.ShowEquipmentNotificationOnWeaponBroken;
 
 		SISWeaponDurability_Config.GlobalWeaponBaseDamageMultiplier = obj.GlobalWeaponBaseDamageMultiplier;
+		SISWeaponDurability_Config.DeterioratedWeaponMinimumDamagePercent = obj.DeterioratedWeaponMinimumDamagePercent;
 		SISWeaponDurability_Config.GlobalDurabilityDegradeRate = obj.GlobalDurabilityDegradeRate;
 		SISWeaponDurability_Config.DefaultMeleeWeaponDurability = obj.DefaultMeleeWeaponDurability;
 		SISWeaponDurability_Config.DefaultBowDurability = obj.DefaultGunDurability;
 		SISWeaponDurability_Config.DefaultGunDurability = obj.DefaultGunDurability;
-		SISWeaponDurability_Config.DurabilityDamageReductionThresholdCount = obj.DurabilityDamageReductionThresholdCount;
 
 		SISWeaponDurability_Config.ChanceAnimalFatOnSkinAnimal = obj.ChanceAnimalFatOnSkinAnimal;
 		SISWeaponDurability_Config.ChanceAnimalFatOnSkinHuman = obj.ChanceAnimalFatOnSkinHuman;
 		SISWeaponDurability_Config.ChanceAnimalFatOnSkinZombie = obj.ChanceAnimalFatOnSkinZombie;
+
+		SISWeaponDurability_Config.DisassemblyTime = obj.DisassemblyTime;
 
 		SISWeaponDurability_Config.WeaponDurabilityBarColor = obj.WeaponDurabilityBarColor;
 
@@ -405,15 +407,17 @@ public class SISWeaponDurability_Config
 	public static bool PlaySoundOnWeaponBroken;
 
 	public static float GlobalWeaponBaseDamageMultiplier;
+	public static float DeterioratedWeaponMinimumDamagePercent;
 	public static float GlobalDurabilityDegradeRate;
 	public static float DefaultMeleeWeaponDurability;
 	public static float DefaultBowDurability;
 	public static float DefaultGunDurability;
-	public static int DurabilityDamageReductionThresholdCount;
 
 	public static float ChanceAnimalFatOnSkinAnimal;
 	public static float ChanceAnimalFatOnSkinHuman;
 	public static float ChanceAnimalFatOnSkinZombie;
+
+	public static float DisassemblyTime;
 
 	public static Color32 WeaponDurabilityBarColor;
 

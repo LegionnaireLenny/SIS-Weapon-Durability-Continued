@@ -84,15 +84,17 @@ public class SISWeaponDurability_Settings
 	public bool PlaySoundOnWeaponBroken = true;
 
 	public float GlobalWeaponBaseDamageMultiplier = 1f;
+	public float DeterioratedWeaponMinimumDamagePercent = 0.1f;
 	public float GlobalDurabilityDegradeRate = 1f;
 	public float DefaultMeleeWeaponDurability = 20f;
 	public float DefaultBowDurability = 300f;
 	public float DefaultGunDurability = 300f;
-	public int DurabilityDamageReductionThresholdCount = 5;
 
 	public float ChanceAnimalFatOnSkinAnimal = 0.75f;
 	public float ChanceAnimalFatOnSkinHuman = 0.50f;
 	public float ChanceAnimalFatOnSkinZombie = 0.25f;
+
+	public float DisassemblyTime = 15f;
 
 	public Color32 WeaponDurabilityBarColor = new Color32(byte.MaxValue, 221, 0, byte.MaxValue);
 

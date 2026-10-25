@@ -16,7 +16,9 @@ public class Equipment_Spawn__Patch
         }
 
         WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(__result);
-        float num = Session.Instance.DeterministicRand.Next((int)(weaponModifiersForEquipment.MaxDurability * 0.3f), (int)(weaponModifiersForEquipment.MaxDurability * 0.9f));
+        int minDurability = (int)(weaponModifiersForEquipment.MaxDurability * SISWeaponDurability_Config.MinWeaponDurabilityOnSpawnPcnt);
+        int maxDurability = (int)(weaponModifiersForEquipment.MaxDurability * SISWeaponDurability_Config.MaxWeaponDurabilityOnSpawnPcnt);
+        float num = Session.Instance.DeterministicRand.Next(minDurability, maxDurability);
         if (__result.InventoryOwner is WorkBench)
         {
             num = weaponModifiersForEquipment.MaxDurability;

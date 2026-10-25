@@ -25,14 +25,15 @@
   <CharactersSpeakOnWeaponBroken>true</CharactersSpeakOnWeaponBroken>
   <PlaySoundOnWeaponBroken>true</PlaySoundOnWeaponBroken>
   <GlobalWeaponBaseDamageMultiplier>1</GlobalWeaponBaseDamageMultiplier>
+  <DeterioratedWeaponMinimumDamagePercent>0.1</DeterioratedWeaponMinimumDamagePercent>
   <GlobalDurabilityDegradeRate>1</GlobalDurabilityDegradeRate>
   <DefaultMeleeWeaponDurability>20</DefaultMeleeWeaponDurability>
   <DefaultBowDurability>300</DefaultBowDurability>
   <DefaultGunDurability>300</DefaultGunDurability>
-  <DurabilityDamageReductionThresholdCount>5</DurabilityDamageReductionThresholdCount>
   <ChanceAnimalFatOnSkinAnimal>0.75</ChanceAnimalFatOnSkinAnimal>
   <ChanceAnimalFatOnSkinHuman>0.5</ChanceAnimalFatOnSkinHuman>
   <ChanceAnimalFatOnSkinZombie>0.25</ChanceAnimalFatOnSkinZombie>
+  <DisassemblyTime>15</DisassemblyTime>
   <WeaponDurabilityBarColor>
     <r>255</r>
     <g>221</g>
