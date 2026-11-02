@@ -30,7 +30,7 @@
     </LootableFrom>
     <LootableFrom>
       <Name>Bin</Name>
-	  <OverrideScarcity>Common</OverrideScarcity>
+      <OverrideScarcity>Common</OverrideScarcity>
     </LootableFrom>
   </LootableFromLocations>
   <TypicalLootAmount>3</TypicalLootAmount>

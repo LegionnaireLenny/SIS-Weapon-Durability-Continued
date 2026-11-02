@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <StorySettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SteamWorkshopId>3487805258</SteamWorkshopId>
-  <NativeName>SIS Weapon Durability</NativeName>
+  <SteamWorkshopId>3826991140</SteamWorkshopId>
+  <NativeName>SIS Weapon Durability Continued</NativeName>
   <NativeDescription>This mod adds weapon durability and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!</NativeDescription>
   <IsMod>true</IsMod>
   <ProcedurallyGenerated>false</ProcedurallyGenerated>

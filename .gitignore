@@ -430,3 +430,4 @@ FodyWeavers.xsd
 
 # Local build paths (user-specific)
 Directory.Build.props
+*.dll

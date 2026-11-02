@@ -1,3 +1,23 @@
+This is an update to SweetCaptn's mod [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3487805258]SIS Weapon Durability[/url] that fixes a few bugs, adds a couple features and several new configuration options. This mod replaces the original mod, so do not use them together. This was tested on the publicbeta version.
+
+[h2]What's New[/h2]
+[list]
+[*] Fixed bug that prevented chopping trees from degrading axes (previously it checked if a hunting knife was equipped instead of an axe)
+[*] Fixed bug that prevented repairing firearms if the character didn't also have duct tape in their inventory
+[*] Disassembling ranged weapons now gives parts based on the weapon type instead of defaulting to junk parts when the weapon is not defined in Settings_WeaponDurability.xml or Settings_WeaponDurabilityAddon.xml
+[*] Changed the 0.5x multiplier to weapon base damage to 1x and made it a setting in Settings_WeaponDurability.xml (it wasn't mentioned anywhere, so I assume it was unintentional)
+[*] Changed deterioration to decrease base weapon damage along a logarithmic curve instead of linearly (e.g. at 80%, 50%, 30% durability, weapon damage is reduced by ~10%, ~30%, and 50% respectively)
+[*] Added option to get animal fat from skinning humans
+[*] Added option to get animal fat from skinning zombies
+[*] Added option to configure weapon disassembly time
+[*] Separated DefaultAmmoWeaponDurability into DefaultGunDurability and DefaultBowDurability
+[*] Exposed additional settings to XML serialization and added them to the default Settings_WeaponDurability.xml
+[*] Added additional error handling to mitigate crashing when skinning
+[*] Refactoring, code improvements, and cleanup
+[/list]
+
+[hr][/hr]
+
 [h2]What is this?[/h2]
 This mod adds [b]weapon durability[/b] and repair to the game. Your weapons can now break, adding a whole new dimension to your gameplay!
 
@@ -42,14 +62,42 @@ It supports any weapons added by other mods, and will give default configuration
 [h2]Settings[/h2]
 The settings file can be found inside the mod's folder under "Settings_SISWeaponDurability.xml".
 [list]
+[*] (New) LoggingEnabled. Enables writing debug messages to log.txt (default false)
 [*] EnabledForPlayerCommunity. Whether weapons will degrade for you and characters in your community. (default true)
 [*] EnabledForNPCs. Whether weapons will degrade for npcs. (default false)
 [*] EnabledForMeleeWeapons. Whether durability is enabled for melee weapons. (default true)
 [*] EnabledForAmmoWeapons. Whether durability is enabled for guns. (default true)
-[*] GlobalDurabilityDegradeRate. General durability degrade rate. (default 1.0)
+[*] (New) SkinningReducesDurability. (default true)
+[*] (New) SkinningDurabilityDegradePercentage. Amount of durability lost when skinning. (default 0.05)
+[*] (New) ChoppingReducesDurability. Whether axes will degrade when chopping. (default true)
+[*] (New) ChoppingDurabilityDegradePercentage. Amount of durability lost when chopping. (default 0.05)
+[*] (New) MiningReducesDurability. Whether pickaxes will degrade when mining. (default true)
+[*] (New) MiningDurabilityDegradePercentage. Amount of durability lost when mining. (default 0.05)
+[*] (New) AssassinationReducesDurability Whether knives will degrade when assassinating an NPC. (default true)
+[*] (New) AssassinationDurabilityDegradePercentage Amount of durability lost after assassinating. (default 0.05)
 [*] WeaponsSpawnWithLessDurability. Whether weapons spawn with less durability. (default true)
+[*] (New) MinWeaponDurabilityOnSpawnPcnt. Minimum durability a weapon will spawn with. (default 0.35)
+[*] (New) MaxWeaponDurabilityOnSpawnPcnt. Maximum durability a weapon will spawn with. (default 0.8)
 [*] HitLocationAffectsDegradation. Whether hit location (head, top, bottom) affects degradation of weapons. (default false)
+[*] (New) HitLocationHeadModifierPcnt. Multiplier for hitting targets in the head. (default 0.9)
+[*] (New) HitLocationTopModifierPcnt. Multiplier for hitting targets in the torso/arms. (default 1.1)
+[*] (New) HitLocationBottomModifierPcnt. Multiplier for hitting tagets in the legs. (default 1.0)
+[*] ShowEquipmentNotificationOnWeaponBroken. Whether to show an equipment notification when a weapon breaks. (default true)
+[*] ShowStatusMsgOnWeaponBroken. Whether to show a status message when a weapon breaks. (default false)
+[*] CharactersSpeakOnWeaponBroken. Whether a character will say something when their weapon breaks. (default true)
+[*] PlaySoundOnWeaponBroken. Whether to play a sound when a weapon breaks. (default true)
+[*] (New) GlobalWeaponBaseDamageMultiplier. Multiplier for the base damage (not total damage including skill) of all weapons. (default 1.0)
+[*] (New) DeterioratedWeaponMinimumDamagePercent. Deterioration will not reduce a weapon's base damage below this percentage. (default 0.1)
+[*] GlobalDurabilityDegradeRate. General durability degrade rate. (default 1.0)
+[*] DefaultBowDurability. Max durability for bows not defined in the settings files. (default 300)
+[*] DefaultGunDurability. Max durability for guns not defined in the settings files. (default 300)
+[*] ChanceAnimalFatOnSkinAnimal. Chance to obtain animal fat when skinning animals. (default 0.75)
+[*] (New) ChanceAnimalFatOnSkinHuman. Chance to obtain animal fat when skinning non-zombie humans. (default 0.50)
+[*] (New) ChanceAnimalFatOnSkinZombie. Chance to obtain animal fat when skinning zombies. (default 0.25)
+[*] (New) DisassemblyTime. Amount of time it takes to disassemble weapons. (default 15.0)
+[*] WeaponDurabilityBarColor. The color of the durability bar at maximum durability. (default 255, 221, 0, 255)
 [*] WeaponTypes. List with the settings for each weapon.
+[*] ExcludedWeapons. List of weapons that will not degrade with use.
 [/list]
 
 [h3]WeaponTypeSettings[/h3]

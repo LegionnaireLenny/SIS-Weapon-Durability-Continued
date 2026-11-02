@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <RecipeList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Recipes>
-	
     <Recipe>
       <UniqueID>MakeHomemadeGlue</UniqueID>
       <NativeName>Make Homemade Glue</NativeName>
@@ -12,7 +11,7 @@
       <SkillLevel>0</SkillLevel>
       <SkillProgression>10</SkillProgression>
       <ProductPrototypeName>HomemadeGlue</ProductPrototypeName>
-	  <ProductAmount>1</ProductAmount>
+      <ProductAmount>1</ProductAmount>
       <CraftingTime>20</CraftingTime>
       <Ingredients>
         <Ingredient>
@@ -29,7 +28,6 @@
         </Ingredient>
       </Ingredients>
     </Recipe>
-	
     <Recipe>
       <UniqueID>MakeGunRepairKit</UniqueID>
       <NativeName>Make Gun Repair Kit</NativeName>
@@ -40,7 +38,7 @@
       <SkillLevel>3</SkillLevel>
       <SkillProgression>10</SkillProgression>
       <ProductPrototypeName>GunRepairKit</ProductPrototypeName>
-	  <ProductAmount>1</ProductAmount>
+      <ProductAmount>1</ProductAmount>
       <CraftingTime>10</CraftingTime>
       <Ingredients>
         <Ingredient>
@@ -51,7 +49,6 @@
         </Ingredient>
       </Ingredients>
     </Recipe>
-	
     <Recipe>
       <UniqueID>MakeDuctTape</UniqueID>
       <NativeName>Make Duct Tape</NativeName>
@@ -62,7 +59,7 @@
       <SkillLevel>3</SkillLevel>
       <SkillProgression>10</SkillProgression>
       <ProductPrototypeName>DuctTape</ProductPrototypeName>
-	  <ProductAmount>1</ProductAmount>
+      <ProductAmount>1</ProductAmount>
       <CraftingTime>10</CraftingTime>
       <Ingredients>
         <Ingredient>
@@ -74,13 +71,11 @@
         <Ingredient>
           <PrototypeNames>
             <string>Glue</string>
-			<string>HomemadeGlue</string>
+            <string>HomemadeGlue</string>
           </PrototypeNames>
           <Amount>1</Amount>
         </Ingredient>
       </Ingredients>
     </Recipe>
-	
-	
   </Recipes>
 </RecipeList>

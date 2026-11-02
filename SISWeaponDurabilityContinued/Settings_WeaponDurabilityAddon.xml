@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SISWeaponDurability_SettingsAddon>
-	<WeaponTypes>
-		<WeaponTypeSettings>
-		  <WeaponType>MyCustomWeapon</WeaponType>
-		  <DegradeRate>1</DegradeRate>
-		  <MaxDurability>25</MaxDurability>
-		  <MinPartsOnBroken>2</MinPartsOnBroken>
-		  <MaxPartsOnBroken>4</MaxPartsOnBroken>
-		  <PartsPrototypeName>JunkParts</PartsPrototypeName>
-		  <NumPartsToRepair>4</NumPartsToRepair>
-		</WeaponTypeSettings>
-	</WeaponTypes>
+  <WeaponTypes>
+    <WeaponTypeSettings>
+      <WeaponType>MyCustomWeapon</WeaponType>
+      <DegradeRate>1</DegradeRate>
+      <MaxDurability>25</MaxDurability>
+      <MinPartsOnBroken>2</MinPartsOnBroken>
+      <MaxPartsOnBroken>4</MaxPartsOnBroken>
+      <PartsPrototypeName>JunkParts</PartsPrototypeName>
+      <NumPartsToRepair>4</NumPartsToRepair>
+    </WeaponTypeSettings>
+  </WeaponTypes>
 </SISWeaponDurability_SettingsAddon>
