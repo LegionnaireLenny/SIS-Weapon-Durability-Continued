@@ -94,4 +94,3 @@ The settings file can be found inside the mod's folder under "Settings_SISWeapon
 [*] WeaponTypes. List with the settings for each weapon.
 [*] ExcludedWeapons. List of weapons that will not degrade with use.
 [/list]
-
