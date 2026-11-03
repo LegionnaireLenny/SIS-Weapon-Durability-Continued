@@ -1,10 +1,10 @@
-﻿using System;
-using HarmonyLib;
+﻿using HarmonyLib;
+using System;
 
 [HarmonyPatch(typeof(EquipmentContainer), "GetBestWeaponForShortcut")]
 public class EquipmentContainer_GetBestWeaponForShortcut__Patch
 {
-	private static void Postfix(ref Equipment __result, EquipmentContainer __instance, Character character, Type type, int count)
+    private static void Postfix(ref Equipment __result, EquipmentContainer __instance, Character character, Type type, int count)
     {
         if (type != typeof(MeleeWeapon))
         {

@@ -4,11 +4,11 @@ using UnityEngine;
 [HarmonyPatch(typeof(Equipment), "GetBaseDamage")]
 public class Equipment_GetBaseDamage__Patch
 {
-	private static void Postfix(ref float __result, Equipment __instance)
-	{
-		float maxDurabilityForEquipment = SISWeaponDurability_Config.GetMaxDurabilityForEquipment(__instance);
+    private static void Postfix(ref float __result, Equipment __instance)
+    {
+        float maxDurabilityForEquipment = SISWeaponDurability_Config.GetMaxDurabilityForEquipment(__instance);
         if ((__instance is MeleeWeapon || __instance is AmmoWeapon) && __instance.GetDampness() < maxDurabilityForEquipment)
-		{
+        {
             float currentDurability = __instance.GetDampness();
             float durabilityPercent = currentDurability / maxDurabilityForEquipment;
             float minDamage = __instance.GetPrototype().Damage * SISWeaponDurability_Config.DeterioratedWeaponMinimumDamagePercent;

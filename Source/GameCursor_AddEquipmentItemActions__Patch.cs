@@ -3,18 +3,18 @@
 [HarmonyPatch(typeof(GameCursor), "AddEquipmentItemActions")]
 public class GameCursor_AddEquipmentItemActions__Patch
 {
-	private static void RemoveRepairActions(GameCursor __instance)
-	{
-		for (int i = __instance.AvailableActions.Count - 1; i >= 0; i--)
-		{
+    private static void RemoveRepairActions(GameCursor __instance)
+    {
+        for (int i = __instance.AvailableActions.Count - 1; i >= 0; i--)
+        {
             if (__instance.AvailableActions[i].Recipe != null && __instance.AvailableActions[i].ActionType == CursorAction.Craft)
-			{
-				__instance.AvailableActions.RemoveAt(i);
-			}
-		}
-	}
+            {
+                __instance.AvailableActions.RemoveAt(i);
+            }
+        }
+    }
 
-	private static void Postfix(GameCursor __instance, Equipment item, InfoPage page, TileObject carrier, Character controlledCharacter)
+    private static void Postfix(GameCursor __instance, Equipment item, InfoPage page, TileObject carrier, Character controlledCharacter)
     {
         if (page is TradePage || item == null)
         {

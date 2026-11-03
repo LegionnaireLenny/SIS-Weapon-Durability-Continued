@@ -1,11 +1,10 @@
-﻿using System;
-using HarmonyLib;
+﻿using HarmonyLib;
 
 // TODO: This function throws errors occasionally
 [HarmonyPatch(typeof(MoveToAndSkin), "OnAnimationEvent")]
 public class MoveToAndSkin_OnAnimationEvent__Patch
 {
-	private static void Prefix(MoveToAndSkin __instance, Character character, Goal parent, AnimEvent animEvent)
+    private static void Prefix(MoveToAndSkin __instance, Character character, Goal parent, AnimEvent animEvent)
     {
         if (__instance == null ||
             character == null ||
@@ -18,8 +17,8 @@ public class MoveToAndSkin_OnAnimationEvent__Patch
         }
 
         Character targetCharacter = parent.GetTargetCharacter();
-        if (targetCharacter == null || 
-            targetCharacter.SkinnedAmount >= 1.0 || 
+        if (targetCharacter == null ||
+            targetCharacter.SkinnedAmount >= 1.0 ||
             (targetCharacter is Human && targetCharacter.Zombie && SISWeaponDurability_Config.ChanceAnimalFatOnSkinZombie <= 0) ||
             (targetCharacter is Human && targetCharacter.Zombie && SISWeaponDurability_Utils.NextFloat(character) >= SISWeaponDurability_Config.ChanceAnimalFatOnSkinZombie) ||
             (targetCharacter is Human && !targetCharacter.Zombie && SISWeaponDurability_Config.ChanceAnimalFatOnSkinHuman <= 0) ||

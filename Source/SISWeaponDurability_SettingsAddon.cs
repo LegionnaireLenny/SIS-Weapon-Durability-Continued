@@ -9,6 +9,6 @@ using System.Xml.Serialization;
 [Serializable]
 public class SISWeaponDurability_SettingsAddon
 {
-	[XmlArray(ElementName = "WeaponTypes")]
-	public List<WeaponTypeSettings> WeaponTypes = new List<WeaponTypeSettings>();
+    [XmlArray(ElementName = "WeaponTypes")]
+    public List<WeaponTypeSettings> WeaponTypes = new List<WeaponTypeSettings>();
 }

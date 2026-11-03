@@ -4,7 +4,7 @@ using UnityEngine;
 [HarmonyPatch(typeof(Equipment), "GetLiquidAmountBar")]
 public class Equipment_GetLiquidAmountBar__Patch
 {
-	private static bool Prefix(ref bool __result, Equipment __instance, ref float amount, ref Color col)
+    private static bool Prefix(ref bool __result, Equipment __instance, ref float amount, ref Color col)
     {
         if (!(__instance is MeleeWeapon || __instance is AmmoWeapon))
         {

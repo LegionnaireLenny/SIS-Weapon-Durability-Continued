@@ -4,7 +4,7 @@ using UnityEngine;
 [HarmonyPatch(typeof(Session), "ProcessInputAction")]
 public class Session_ProcessInputAction__Patch
 {
-	private static void Postfix(Session __instance, PlayerRecord playerRecord, InputAction action)
+    private static void Postfix(Session __instance, PlayerRecord playerRecord, InputAction action)
     {
         if (action.Type != Main.RepairInputActionID)
         {

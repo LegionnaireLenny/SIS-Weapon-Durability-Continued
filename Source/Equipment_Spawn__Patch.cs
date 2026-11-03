@@ -1,14 +1,14 @@
-﻿using System;
-using HarmonyLib;
+﻿using HarmonyLib;
+using System;
 
 [HarmonyPatch(typeof(Equipment), "Spawn", new Type[]
 {
-	typeof(EquipmentPrototype),
-	typeof(int)
+    typeof(EquipmentPrototype),
+    typeof(int)
 })]
 public class Equipment_Spawn__Patch
 {
-	private static void Postfix(Equipment __instance, EquipmentPrototype prototype, int amount, ref Equipment __result)
+    private static void Postfix(Equipment __instance, EquipmentPrototype prototype, int amount, ref Equipment __result)
     {
         if (!SISWeaponDurability_Config.WeaponsSpawnWithLessDurability || !(__result is MeleeWeapon || __result is AmmoWeapon))
         {

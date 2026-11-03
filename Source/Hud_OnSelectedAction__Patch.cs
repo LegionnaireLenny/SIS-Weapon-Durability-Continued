@@ -3,7 +3,7 @@
 [HarmonyPatch(typeof(Hud), "OnSelectedAction")]
 public class Hud_OnSelectedAction__Patch
 {
-	private static void Postfix(Hud __instance, InputFrame inputFrame, AvailableAction action, bool isDoubleClick, ref bool captureAltAction)
+    private static void Postfix(Hud __instance, InputFrame inputFrame, AvailableAction action, bool isDoubleClick, ref bool captureAltAction)
     {
         if (action.Target == null)
         {

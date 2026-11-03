@@ -1,14 +1,14 @@
-﻿using System;
+﻿using HarmonyLib;
+using System;
 using System.Collections.Generic;
-using HarmonyLib;
 
 [HarmonyPatch(typeof(GameImpl), "SetPrototypeLookupsFromStory")]
 public class GameImpl_SetPrototypeLookupsFromStory__Patch
 {
-	private static void Postfix(GameImpl __instance, Story story)
-	{
-		try
-		{
+    private static void Postfix(GameImpl __instance, Story story)
+    {
+        try
+        {
             if (__instance == null || __instance.CurrentRecipes == null || story == null)
             {
                 SISWeaponDurability_Config.Log("ERROR adding recipes, gameplay instance or story is null");
@@ -66,8 +66,8 @@ public class GameImpl_SetPrototypeLookupsFromStory__Patch
             }
         }
         catch (Exception ex)
-		{
-			SISWeaponDurability_Config.Log("ERROR adding recipes: " + ex.Message);
-		}
-	}
+        {
+            SISWeaponDurability_Config.Log("ERROR adding recipes: " + ex.Message);
+        }
+    }
 }

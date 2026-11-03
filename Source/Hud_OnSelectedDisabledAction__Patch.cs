@@ -3,7 +3,7 @@
 [HarmonyPatch(typeof(Hud), "OnSelectedDisabledAction")]
 public class Hud_OnSelectedDisabledAction__Patch
 {
-	private static bool Prefix(Hud __instance, AvailableAction action)
+    private static bool Prefix(Hud __instance, AvailableAction action)
     {
         if (action.Actor == null || action.Target == null)
         {
