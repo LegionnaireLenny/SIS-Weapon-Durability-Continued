@@ -99,15 +99,15 @@ public class SISWeaponDurability_Config
                     try
                     {
                         weaponTypes[x.WeaponType] = x;
-                        Log("Added durability settings for weapon " + x.WeaponType);
+                        Log($"Added durability settings for weapon {x.WeaponType}");
                     }
                     catch (Exception ex)
                     {
-                        Log("Error adding " + x.WeaponType + ": " + ex.Message);
+                        Log($"Error adding {x.WeaponType}: {ex.Message}");
                     }
                 });
             }
-            Log("Loaded WeaponTypeSettingsAddon from path " + WeaponTypeSettingsOtherModsPath);
+            Log($"Loaded WeaponTypeSettingsAddon from path {WeaponTypeSettingsOtherModsPath}");
         }
     }
 
@@ -117,7 +117,7 @@ public class SISWeaponDurability_Config
         {
             using (StreamWriter streamWriter = File.AppendText(LogPath))
             {
-                streamWriter.WriteLine(new string(FileLog.indentChar, FileLog.indentLevel) + "[SISWeaponDurability] " + message);
+                streamWriter.WriteLine($"{new string(FileLog.indentChar, FileLog.indentLevel)}[SISWeaponDurability] {message}");
             }
         }
         catch { }
@@ -198,7 +198,7 @@ public class SISWeaponDurability_Config
             }
             catch (Exception ex2)
             {
-                Log("Error adding " + text + ": " + ex2.Message);
+                Log($"Error adding {text}: {ex2.Message}");
             }
         }
     }

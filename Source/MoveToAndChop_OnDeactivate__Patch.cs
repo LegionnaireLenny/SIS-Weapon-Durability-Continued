@@ -11,8 +11,7 @@ public class MoveToAndChop_OnDeactivate__Patch
             character.EquippedItem is Axe &&
             SISWeaponDurability_Utils.IsWeaponDegradationEnabledForCharacter(character))
         {
-            WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(character.EquippedItem);
-            SISWeaponDurability_Utils.ReduceDurability(character.EquippedItem, SISWeaponDurability_Config.ChoppingDurabilityDegradePercentage * weaponModifiersForEquipment.MaxDurability);
+            SISWeaponDurability_Utils.ReduceDurability(character.EquippedItem, SISWeaponDurability_Config.ChoppingDurabilityDegradePercentage, true);
         }
     }
 }

@@ -11,8 +11,7 @@ public class MoveToAndMine_OnDeactivate__Patch
             character.EquippedItem is Pickaxe &&
             SISWeaponDurability_Utils.IsWeaponDegradationEnabledForCharacter(character))
         {
-            WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(character.EquippedItem);
-            SISWeaponDurability_Utils.ReduceDurability(character.EquippedItem, SISWeaponDurability_Config.MiningDurabilityDegradePercentage * weaponModifiersForEquipment.MaxDurability);
+            SISWeaponDurability_Utils.ReduceDurability(character.EquippedItem, SISWeaponDurability_Config.MiningDurabilityDegradePercentage, true);
         }
     }
 }

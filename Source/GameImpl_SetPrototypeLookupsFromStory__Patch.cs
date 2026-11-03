@@ -38,6 +38,7 @@ public class GameImpl_SetPrototypeLookupsFromStory__Patch
                     continue;
                 }
 
+                SISWeaponDurability_Config.Log($"Creating dissassembly recipe for {equip.Name} : {story.StorySource.GetTranslatedName()}");
                 Recipe recipe = new Recipe
                 {
                     UniqueID = id,

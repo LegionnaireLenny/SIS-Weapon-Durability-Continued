@@ -84,38 +84,44 @@ public class SISWeaponDurability_Utils
         HudBehaviour.Instance.StatusBarMsgAction = default;
     }
 
-    public static float ReduceDurability(Equipment equip, float amount = 1f)
+    public static float ReduceDurability(Equipment equip, float amount = 1f, bool isPercentageReduction = false)
     {
-        float num;
         if (amount == 0f || equip == null)
         {
-            num = -1f;
+            return -1f;
+        }
+
+        WeaponTypeSettings weaponSettings = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(equip);
+        float remainingDurability;
+        if (isPercentageReduction)
+        {
+            remainingDurability = Mathf.Max(0f, equip.GetDampness() - (weaponSettings.MaxDurability * (amount * weaponSettings.DegradeRate * SISWeaponDurability_Config.GlobalDurabilityDegradeRate)));
         }
         else
         {
-            float num2 = Mathf.Max(equip.GetDampness() - amount, 0f);
-            if (equip.IsAuthoritative())
-            {
-                equip.SetDampness(num2);
-                SISWeaponDurability_Config.Log("Reduced durability for " + equip.GetPrototype().Name + ", dur = " + num2.ToString());
-                if (num2 == 0f)
-                {
-                    SISWeaponDurability_Utils.BreakEquipment(equip);
-                }
-            }
-            num = num2;
+            remainingDurability = Mathf.Max(0f, equip.GetDampness() - (amount * weaponSettings.DegradeRate * SISWeaponDurability_Config.GlobalDurabilityDegradeRate));
         }
-        return num;
+
+        if (equip.IsAuthoritative())
+        {
+            SISWeaponDurability_Config.Log($"Reducing durability for {equip.GetPrototype().Name}; {equip.GetDampness()} -> {remainingDurability}");
+            equip.SetDampness(remainingDurability);
+            if (remainingDurability == 0f)
+            {
+                BreakEquipment(equip);
+            }
+        }
+        return remainingDurability;
     }
 
     public static void PlaySound(AudioClip clip, Vector3 pos, float volume = 1f)
     {
-        SISWeaponDurability_Utils.PlaySound(clip, pos, volume, 1f, false, 1f, 3f);
+        PlaySound(clip, pos, volume, 1f, false, 1f, 3f);
     }
 
     public static void PlaySoundFromList(List<AudioClip> clips, Vector3 pos, float volume = 1f)
     {
-        SISWeaponDurability_Utils.PlaySound(clips[MathUtil.NonDeterministicRand.Next(clips.Count)], pos, volume, 1f, false, 1f, 3f);
+        PlaySound(clips[MathUtil.NonDeterministicRand.Next(clips.Count)], pos, volume, 1f, false, 1f, 3f);
     }
 
     public static void PlaySound(AudioClip clip, Vector3 pos, float volume, float spatialBlend, bool realisticRolloff, float minRolloffDist, float maxRolloffDist)
@@ -137,18 +143,19 @@ public class SISWeaponDurability_Utils
             audioSource.rolloffMode = AudioRolloffMode.Linear;
         }
         audioSource.Play();
-        global::UnityEngine.Object.Destroy(gameObject, clip.length);
+        Object.Destroy(gameObject, clip.length);
     }
 
     public static void BreakEquipment(Equipment equip)
     {
-        if (equip.GetAsCharacter() == null)
+        Character weaponOwner = equip.GetAsCharacter();
+        if (weaponOwner == null)
         {
             return;
         }
 
-        bool ownerIsPlayerControlled = equip.GetAsCharacter() == Hud.Instance.LocalControlledCharacter;
-        bool characterIsConscious = equip.GetAsCharacter().Alive && !equip.GetAsCharacter().IsSleepingOrUnconscious();
+        bool ownerIsPlayerControlled = weaponOwner == Hud.Instance.LocalControlledCharacter;
+        bool characterIsConscious = weaponOwner.Alive && !weaponOwner.IsSleepingOrUnconscious();
         if (characterIsConscious)
         {
             if (ownerIsPlayerControlled)
@@ -156,7 +163,7 @@ public class SISWeaponDurability_Utils
                 if (SISWeaponDurability_Config.ShowStatusMsgOnWeaponBroken)
                 {
                     string text = GameImpl.Translate(SISWeaponDurability_Config.SpeechTranslateKey).Replace("%1", GameImpl.Translate(equip.GetPrototype().GetNameKey()));
-                    SISWeaponDurability_Utils.SetStatusBarMsgWithTimeout(text, 2f);
+                    SetStatusBarMsgWithTimeout(text, 2f);
                 }
             }
             else
@@ -169,12 +176,11 @@ public class SISWeaponDurability_Utils
             }
         }
 
-        Character asCharacter = equip.GetAsCharacter();
         if (SISWeaponDurability_Config.PlaySoundOnWeaponBroken)
         {
             try
             {
-                SISWeaponDurability_Utils.PlaySound(SISWeaponDurability_Config.WeaponBreakSound, asCharacter.Pos, 1f);
+                PlaySound(SISWeaponDurability_Config.WeaponBreakSound, weaponOwner.Pos, 1f);
             }
             catch
             {
@@ -182,35 +188,35 @@ public class SISWeaponDurability_Utils
             }
         }
 
-        if (SISWeaponDurability_Config.ShowEquipmentNotificationOnWeaponBroken && Session.Instance.GetLocalPlayerCharacter() == asCharacter)
+        if (SISWeaponDurability_Config.ShowEquipmentNotificationOnWeaponBroken && weaponOwner == Session.Instance.GetLocalPlayerCharacter())
         {
             NotificationManager.Instance.AddEquipmentNotification(equip.GetAsCharacter(), null, equip, 1);
         }
 
-        EquipmentPrototype equipmentPrototype = SISWeaponDurability_Utils.JunkParts;
+        EquipmentPrototype scrapParts = JunkParts;
         if (equip is AmmoWeapon ammoWeapon)
         {
-            ammoWeapon.Unload(asCharacter);
-            if (equip.GetInjuryType() == 0)
+            ammoWeapon.Unload(weaponOwner);
+            if (equip.GetInjuryType() == InjuryType.Bullet)
             {
-                equipmentPrototype = SISWeaponDurability_Utils.GunParts;
+                scrapParts = GunParts;
 
             }
         }
 
-        asCharacter.Inventory.Remove(asCharacter, equip);
-        if (equipmentPrototype != null)
+        weaponOwner.Inventory.Remove(weaponOwner, equip);
+        if (scrapParts != null)
         {
             int weaponMinPartsOnBroken = SISWeaponDurability_Config.GetWeaponMinPartsOnBroken(equip);
             int weaponMaxPartsOnBroken = SISWeaponDurability_Config.GetWeaponMaxPartsOnBroken(equip);
-            int num = SISWeaponDurability_Utils.NextBetweenInts(asCharacter, weaponMinPartsOnBroken, weaponMaxPartsOnBroken, 1);
-            if (num > 0 && asCharacter != null)
+            int num = NextBetweenInts(weaponOwner, weaponMinPartsOnBroken, weaponMaxPartsOnBroken, 1);
+            if (num > 0)
             {
-                Equipment equipment = Equipment.Spawn(equipmentPrototype, num);
-                asCharacter.Inventory.Add(asCharacter, equipment);
-                if (SISWeaponDurability_Config.ShowEquipmentNotificationOnWeaponBroken && Session.Instance.GetLocalPlayerCharacter() == asCharacter)
+                Equipment equipment = Equipment.Spawn(scrapParts, num);
+                weaponOwner.Inventory.Add(weaponOwner, equipment);
+                if (SISWeaponDurability_Config.ShowEquipmentNotificationOnWeaponBroken && Session.Instance.GetLocalPlayerCharacter() == weaponOwner)
                 {
-                    NotificationManager.Instance.AddEquipmentNotification(null, asCharacter, equipment, num);
+                    NotificationManager.Instance.AddEquipmentNotification(null, weaponOwner, equipment, num);
                 }
             }
         }

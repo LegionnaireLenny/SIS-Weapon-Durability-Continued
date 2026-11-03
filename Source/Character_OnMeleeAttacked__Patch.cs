@@ -59,8 +59,7 @@ public class Character_OnMeleeAttacked__Patch
             SISWeaponDurability_Config.Log($"OnMeleeAttack triggered with non-melee weapon");
         }
 
-        WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(source.EquippedItem);
-        float num = 1f * weaponModifiersForEquipment.DegradeRate * SISWeaponDurability_Config.GlobalDurabilityDegradeRate;
+        float num = 1f;
         if (SISWeaponDurability_Config.HitLocationAffectsDegradation)
         {
             switch (injuryLocation)
@@ -68,14 +67,14 @@ public class Character_OnMeleeAttacked__Patch
                 case InjuryLocation.Torso:
                 case InjuryLocation.LeftArm:
                 case InjuryLocation.RightArm:
-                    num = SISWeaponDurability_Config.HitLocationTopModifierPcnt * num;
+                    num *= SISWeaponDurability_Config.HitLocationTopModifierPcnt;
                     break;
                 case InjuryLocation.Head:
-                    num = SISWeaponDurability_Config.HitLocationHeadModifierPcnt * num;
+                    num *= SISWeaponDurability_Config.HitLocationHeadModifierPcnt;
                     break;
                 case InjuryLocation.LeftLeg:
                 case InjuryLocation.RightLeg:
-                    num = SISWeaponDurability_Config.HitLocationBottomModifierPcnt * num;
+                    num *= SISWeaponDurability_Config.HitLocationBottomModifierPcnt;
                     break;
             }
         }

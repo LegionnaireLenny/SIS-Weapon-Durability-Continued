@@ -11,9 +11,7 @@ public class MoveToAndSkin_OnDeactivate__Patch
             character.EquippedItem is HuntingKnife &&
             SISWeaponDurability_Utils.IsWeaponDegradationEnabledForCharacter(character))
         {
-            SISWeaponDurability_Config.Log("Skinning successful");
-            WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(character.EquippedItem);
-            SISWeaponDurability_Utils.ReduceDurability(character.EquippedItem, SISWeaponDurability_Config.SkinningDurabilityDegradePercentage * weaponModifiersForEquipment.MaxDurability);
+            SISWeaponDurability_Utils.ReduceDurability(character.EquippedItem, SISWeaponDurability_Config.SkinningDurabilityDegradePercentage, true);
         }
     }
 }
