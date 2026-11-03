@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000020 RID: 32
 public class SISWeaponDurability_Utils
 {
 	public static int GetAmountPartsToRepair(Equipment item)
@@ -66,6 +64,18 @@ public class SISWeaponDurability_Utils
         return IsPrototypeBow(equip) || IsPrototypeGun(equip);
     }
 
+	public static bool IsWeaponDegradationEnabledForCharacter(Character character)
+	{
+		bool val = (SISWeaponDurability_Config.EnabledForNPCs && !character.IsOnPlayersTeam()) ||
+			(SISWeaponDurability_Config.EnabledForPlayerCommunity && character.IsOnPlayersTeam() && character != Hud.Instance.LocalControlledCharacter) ||
+			(SISWeaponDurability_Config.EnabledForPlayer && character.IsOnPlayersTeam() && character == Hud.Instance.LocalControlledCharacter);
+
+   //     SISWeaponDurability_Config.Log($"{character?.GetDisplayNameString()};{SISWeaponDurability_Config.EnabledForNPCs} && {!character.IsOnPlayersTeam()} ||;" +
+			//$"{SISWeaponDurability_Config.EnabledForPlayerCommunity} && {character.IsOnPlayersTeam()} && {character != Hud.Instance.LocalControlledCharacter} ||" +
+			//$"{SISWeaponDurability_Config.EnabledForPlayer} && {character.IsOnPlayersTeam()} && {character == Hud.Instance.LocalControlledCharacter} == {val}");
+        return val;
+	}
+
     public static void SetStatusBarMsgWithTimeout(string msg, float timeout)
     {
         HudBehaviour.Instance.StatusBarMsg = msg;
@@ -73,7 +83,6 @@ public class SISWeaponDurability_Utils
         HudBehaviour.Instance.StatusBarMsgShowForOneFrame = false;
         HudBehaviour.Instance.StatusBarMsgAction = default;
     }
-
 
     public static float ReduceDurability(Equipment equip, float amount = 1f)
 	{

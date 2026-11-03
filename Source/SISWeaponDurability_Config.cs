@@ -10,117 +10,104 @@ public class SISWeaponDurability_Config
 {
 	public static string GetBrokenPartsPrototypeName(Equipment equipment)
 	{
-        return SISWeaponDurability_Config.GetWeaponModifiersForEquipment(equipment).PartsPrototypeName;
+		return GetWeaponModifiersForEquipment(equipment).PartsPrototypeName;
 	}
 
 	public SISWeaponDurability_Config()
 	{
-		SISWeaponDurability_Config.instance = this;
-	}
-
-	public static void ResetSettings()
-	{
-		SISWeaponDurability_Config.IsConfigLoaded = false;
-		SISWeaponDurability_Config.FillSettings(SISWeaponDurability_Settings.GetDefault());
+		instance = this;
 	}
 
 	public static void ClearSettings()
 	{
-		SISWeaponDurability_Config.IsConfigLoaded = false;
-		SISWeaponDurability_Config.FillSettings(SISWeaponDurability_Settings.GetDefault());
-		SISWeaponDurability_Config.weaponTypes.Clear();
+		IsConfigLoaded = false;
+		FillSettings(SISWeaponDurability_Settings.GetDefault());
+		weaponTypes.Clear();
 	}
 
-	private static void GetAndAddSounds()
+	public static void Initialize()
 	{
+		StoryPath = GetStoryPath();
+		LogPath = StoryPath + LogFilename;
+		SettingsPath = StoryPath + SettingsFilename;
+		WeaponTypeSettingsOtherModsPath = StoryPath + WeaponTypeSettingsOtherModsFilename;
+		ModIdentifierPath = StoryPath + ModIdentifierFilename;
+
+		if (File.Exists(LogPath))
+		{
+			string previous = StoryPath + LogFilename.Insert(LogFilename.IndexOf("."), ".previous");
+			if (File.Exists(previous))
+			{
+				File.Delete(previous);
+			}
+			File.Move(LogPath, previous);
+		}
 	}
 
 	public static void LoadSettings()
 	{
+		if (IsConfigLoaded)
+		{
+			IsConfigLoaded = false;
+			return;
+		}
+
 		try
 		{
-			bool fileExists = false;
-			foreach (Story story in GameImpl.Instance.CurrentStories)
+			if (File.Exists(SettingsPath))
 			{
-				string text = story.Path + SISWeaponDurability_Config.SettingsFilePath;
-                if (File.Exists(text))
+				using (FileStream fileStream = new FileStream(SettingsPath, FileMode.Open))
 				{
-					fileExists = true;
 					XmlSerializer xmlSerializer = new XmlSerializer(typeof(SISWeaponDurability_Settings));
-					FileStream fileStream = new FileStream(text, FileMode.Open);
-					SISWeaponDurability_Settings sisweaponDurability_Settings = (SISWeaponDurability_Settings)xmlSerializer.Deserialize(fileStream);
-					fileStream.Dispose();
-					SISWeaponDurability_Config.FillSettings(sisweaponDurability_Settings);
-					SISWeaponDurability_Config.Log("Loaded settings from path " + text);
+					FillSettings(xmlSerializer.Deserialize(fileStream) as SISWeaponDurability_Settings);
 				}
+				Log($"Loaded settings from path {SettingsPath}");
 			}
-            if (!fileExists)
+			else
 			{
 				SISWeaponDurability_Settings @default = SISWeaponDurability_Settings.GetDefault();
-				SISWeaponDurability_Config.FillSettings(@default);
-				SISWeaponDurability_Config.Log("Loaded default settings since no settings file was found");
-				SISWeaponDurability_Config.Log(JsonConvert.SerializeObject(@default));
-				foreach (Story story2 in GameImpl.Instance.CurrentStories)
-				{
-					string text2 = story2.Path + SISWeaponDurability_Config.ModIdentifier;
-                    if (File.Exists(text2))
-					{
-						SISWeaponDurability_Config.SaveSettings(SISWeaponDurability_Settings.GetDefault(), story2.Path);
-						SISWeaponDurability_Config.Log("Saved settings file at path " + story2.Path);
-					}
-				}
+				FillSettings(@default);
+                using (FileStream fileStream = File.Create(SettingsPath))
+                {
+                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(SISWeaponDurability_Settings));
+                    xmlSerializer.Serialize(fileStream, @default);
+                }
+				Log("Loaded default settings since no settings file was found");
+                Log($"Saved settings file at path {StoryPath}");
 			}
 		}
 		catch (Exception ex)
 		{
-			SISWeaponDurability_Config.Log(ex.ToString());
-			SISWeaponDurability_Config.Log("Error loading settings");
-			SISWeaponDurability_Config.FillSettings(SISWeaponDurability_Settings.GetDefault());
-			throw new Exception("Error loading SISWeaponDurability settings: " + ex.Message);
+			Log($"Error loading settings: {ex}");
+			FillSettings(SISWeaponDurability_Settings.GetDefault());
+			throw new Exception($"Error loading SISWeaponDurability settings: {ex.Message}");
 		}
-		SISWeaponDurability_Config.IsConfigLoaded = true;
+		LoadWeaponTypeSettingsFromOtherMods();
+        IsConfigLoaded = true;
 	}
 
-	private static void SaveSettings(SISWeaponDurability_Settings settings, string folderPath)
+    public static void LoadWeaponTypeSettingsFromOtherMods()
 	{
-		string text = folderPath + SISWeaponDurability_Config.SettingsFilePath;
-		SISWeaponDurability_Config.Log("Saving to " + text);
-        if (File.Exists(text))
+		if (File.Exists(WeaponTypeSettingsOtherModsPath))
 		{
-			File.Delete(text);
-		}
-		XmlSerializer xmlSerializer = new XmlSerializer(typeof(SISWeaponDurability_Settings));
-		FileStream fileStream = File.Create(text);
-		xmlSerializer.Serialize(fileStream, settings);
-		fileStream.Dispose();
-	}
-
-	public static void LoadWeaponTypeSettingsFromOtherMods()
-	{
-		foreach (Story story in GameImpl.Instance.CurrentStories)
-		{
-			string text = story.Path + SISWeaponDurability_Config.WeaponTypeSettingsOtherMods;
-            if (File.Exists(text))
+			Log($"Found Addon at {WeaponTypeSettingsOtherModsPath}");
+			using (FileStream fileStream = new FileStream(WeaponTypeSettingsOtherModsPath, FileMode.Open))
 			{
-				SISWeaponDurability_Config.Log("Found Addon at " + text);
 				XmlSerializer xmlSerializer = new XmlSerializer(typeof(SISWeaponDurability_SettingsAddon));
-				FileStream fileStream = new FileStream(text, FileMode.Open);
-				SISWeaponDurability_SettingsAddon sisweaponDurability_SettingsAddon = (SISWeaponDurability_SettingsAddon)xmlSerializer.Deserialize(fileStream);
-				fileStream.Dispose();
-				sisweaponDurability_SettingsAddon.WeaponTypes.ForEach(delegate(WeaponTypeSettings x)
+				(xmlSerializer.Deserialize(fileStream) as SISWeaponDurability_SettingsAddon).WeaponTypes.ForEach(delegate (WeaponTypeSettings x)
 				{
 					try
 					{
-						SISWeaponDurability_Config.weaponTypes[x.WeaponType] = x;
-						SISWeaponDurability_Config.Log("Added durability settings for weapon " + x.WeaponType);
+						weaponTypes[x.WeaponType] = x;
+						Log("Added durability settings for weapon " + x.WeaponType);
 					}
 					catch (Exception ex)
 					{
-						SISWeaponDurability_Config.Log("Error adding " + x.WeaponType + ": " + ex.Message);
+						Log("Error adding " + x.WeaponType + ": " + ex.Message);
 					}
 				});
-				SISWeaponDurability_Config.Log("Loaded WeaponTypeSettingsAddon from path " + text);
 			}
+			Log("Loaded WeaponTypeSettingsAddon from path " + WeaponTypeSettingsOtherModsPath);
 		}
 	}
 
@@ -128,112 +115,78 @@ public class SISWeaponDurability_Config
 	{
 		try
 		{
-            if (SISWeaponDurability_Config.LoggingEnabled)
+			using (StreamWriter streamWriter = File.AppendText(LogPath))
 			{
-                if (SISWeaponDurability_Config.StoryPath == "")
-				{
-					SISWeaponDurability_Config.StoryPath = SISWeaponDurability_Config.GetStoryPath();
-				}
-				FileLog.logPath = SISWeaponDurability_Config.StoryPath + SISWeaponDurability_Config.LogFilePath;
-				FileLog.Log("[SISWeaponDurability] " + message);
+				streamWriter.WriteLine(new string(FileLog.indentChar, FileLog.indentLevel) + "[SISWeaponDurability] " + message);
 			}
-		}
-		catch
-		{
-		}
-	}
-
-	public static void ReloadSettings()
-	{
-		SISWeaponDurability_Config.ResetSettings();
-		SISWeaponDurability_Config.LoadSettings();
-		SISWeaponDurability_Config.GetAndAddSounds();
-		try
-		{
-			SISWeaponDurability_Config.LoadWeaponTypeSettingsFromOtherMods();
-		}
-		catch (Exception ex)
-		{
-			SISWeaponDurability_Config.Log("Error loading Weapon Type Addons from other mods: " + ex.Message);
-		}
-		SISWeaponDurability_Config.Log("Loaded!");
+        }
+		catch { }
 	}
 
 	private static void FillSettings(SISWeaponDurability_Settings obj)
 	{
-		FileLog.logPath = SISWeaponDurability_Config.GetStoryPath() + SISWeaponDurability_Config.LogFilePath;
-		try
+		if (!IsConfigLoaded)
 		{
-            if (File.Exists(FileLog.logPath))
-			{
-				File.Delete(FileLog.logPath);
-			}
+			Log(JsonConvert.SerializeObject(obj));
 		}
-		catch { }
 
-		SISWeaponDurability_Config.Log(JsonConvert.SerializeObject(obj));
-		try
-		{
-			SISWeaponDurability_Config.GetAndAddSounds();
-		}
-		catch { }
+		LoggingEnabled = obj.LoggingEnabled;
+		EnabledForPlayer = obj.EnabledForPlayer;
+		EnabledForPlayerCommunity = obj.EnabledForPlayerCommunity;
+		EnabledForNPCs = obj.EnabledForNPCs;
+		EnabledForMeleeWeapons = obj.EnabledForMeleeWeapons;
+		EnabledForAmmoWeapons = obj.EnabledForAmmoWeapons;
 
-		SISWeaponDurability_Config.LoggingEnabled = obj.LoggingEnabled;
-		SISWeaponDurability_Config.EnabledForPlayerCommunity = obj.EnabledForPlayerCommunity;
-		SISWeaponDurability_Config.EnabledForNPCs = obj.EnabledForNPCs;
-		SISWeaponDurability_Config.EnabledForMeleeWeapons = obj.EnabledForMeleeWeapons;
-		SISWeaponDurability_Config.EnabledForAmmoWeapons = obj.EnabledForAmmoWeapons;
+		SkinningReducesDurability = obj.SkinningReducesDurability;
+		SkinningDurabilityDegradePercentage = obj.SkinningDurabilityDegradePercentage;
 
-		SISWeaponDurability_Config.SkinningReducesDurability = obj.SkinningReducesDurability;
-		SISWeaponDurability_Config.SkinningDurabilityDegradePercentage = obj.SkinningDurabilityDegradePercentage;
+		ChoppingReducesDurability = obj.ChoppingReducesDurability;
+		ChoppingDurabilityDegradePercentage = obj.ChoppingDurabilityDegradePercentage;
 
-		SISWeaponDurability_Config.ChoppingReducesDurability = obj.ChoppingReducesDurability;
-		SISWeaponDurability_Config.ChoppingDurabilityDegradePercentage = obj.ChoppingDurabilityDegradePercentage;
+		MiningReducesDurability = obj.MiningReducesDurability;
+		MiningDurabilityDegradePercentage = obj.MiningDurabilityDegradePercentage;
 
-		SISWeaponDurability_Config.MiningReducesDurability = obj.MiningReducesDurability;
-		SISWeaponDurability_Config.MiningDurabilityDegradePercentage = obj.MiningDurabilityDegradePercentage;
+		AssassinationReducesDurability = obj.AssassinationReducesDurability;
+		AssassinationDurabilityDegradePercentage = obj.AssassinationDurabilityDegradePercentage;
 
-		SISWeaponDurability_Config.AssassinationReducesDurability = obj.AssassinationReducesDurability;
-		SISWeaponDurability_Config.AssassinationDurabilityDegradePercentage = obj.AssassinationDurabilityDegradePercentage;
+		WeaponsSpawnWithLessDurability = obj.WeaponsSpawnWithLessDurability;
+		MinWeaponDurabilityOnSpawnPcnt = obj.MinWeaponDurabilityOnSpawnPcnt;
+		MaxWeaponDurabilityOnSpawnPcnt = obj.MaxWeaponDurabilityOnSpawnPcnt;
 
-		SISWeaponDurability_Config.WeaponsSpawnWithLessDurability = obj.WeaponsSpawnWithLessDurability;
-		SISWeaponDurability_Config.MinWeaponDurabilityOnSpawnPcnt = obj.MinWeaponDurabilityOnSpawnPcnt;
-		SISWeaponDurability_Config.MaxWeaponDurabilityOnSpawnPcnt = obj.MaxWeaponDurabilityOnSpawnPcnt;
+		HitLocationAffectsDegradation = obj.HitLocationAffectsDegradation;
+		HitLocationTopModifierPcnt = obj.HitLocationTopModifierPcnt;
+		HitLocationBottomModifierPcnt = obj.HitLocationBottomModifierPcnt;
+		HitLocationHeadModifierPcnt = obj.HitLocationHeadModifierPcnt;
 
-		SISWeaponDurability_Config.HitLocationAffectsDegradation = obj.HitLocationAffectsDegradation;
-		SISWeaponDurability_Config.HitLocationTopModifierPcnt = obj.HitLocationTopModifierPcnt;
-		SISWeaponDurability_Config.HitLocationBottomModifierPcnt = obj.HitLocationBottomModifierPcnt;
-		SISWeaponDurability_Config.HitLocationHeadModifierPcnt = obj.HitLocationHeadModifierPcnt;
+		PlaySoundOnWeaponBroken = obj.PlaySoundOnWeaponBroken;
+		ShowStatusMsgOnWeaponBroken = obj.ShowStatusMsgOnWeaponBroken;
+		CharactersSpeakOnWeaponBroken = obj.CharactersSpeakOnWeaponBroken;
+		ShowEquipmentNotificationOnWeaponBroken = obj.ShowEquipmentNotificationOnWeaponBroken;
 
-		SISWeaponDurability_Config.PlaySoundOnWeaponBroken = obj.PlaySoundOnWeaponBroken;
-		SISWeaponDurability_Config.ShowStatusMsgOnWeaponBroken = obj.ShowStatusMsgOnWeaponBroken;
-		SISWeaponDurability_Config.CharactersSpeakOnWeaponBroken = obj.CharactersSpeakOnWeaponBroken;
-		SISWeaponDurability_Config.ShowEquipmentNotificationOnWeaponBroken = obj.ShowEquipmentNotificationOnWeaponBroken;
+		GlobalWeaponBaseDamageMultiplier = obj.GlobalWeaponBaseDamageMultiplier;
+		DeterioratedWeaponMinimumDamagePercent = obj.DeterioratedWeaponMinimumDamagePercent;
+		GlobalDurabilityDegradeRate = obj.GlobalDurabilityDegradeRate;
+		DefaultMeleeWeaponDurability = obj.DefaultMeleeWeaponDurability;
+		DefaultBowDurability = obj.DefaultGunDurability;
+		DefaultGunDurability = obj.DefaultGunDurability;
 
-		SISWeaponDurability_Config.GlobalWeaponBaseDamageMultiplier = obj.GlobalWeaponBaseDamageMultiplier;
-		SISWeaponDurability_Config.DeterioratedWeaponMinimumDamagePercent = obj.DeterioratedWeaponMinimumDamagePercent;
-		SISWeaponDurability_Config.GlobalDurabilityDegradeRate = obj.GlobalDurabilityDegradeRate;
-		SISWeaponDurability_Config.DefaultMeleeWeaponDurability = obj.DefaultMeleeWeaponDurability;
-		SISWeaponDurability_Config.DefaultBowDurability = obj.DefaultGunDurability;
-		SISWeaponDurability_Config.DefaultGunDurability = obj.DefaultGunDurability;
+		ChanceAnimalFatOnSkinAnimal = obj.ChanceAnimalFatOnSkinAnimal;
+		ChanceAnimalFatOnSkinHuman = obj.ChanceAnimalFatOnSkinHuman;
+		ChanceAnimalFatOnSkinZombie = obj.ChanceAnimalFatOnSkinZombie;
 
-		SISWeaponDurability_Config.ChanceAnimalFatOnSkinAnimal = obj.ChanceAnimalFatOnSkinAnimal;
-		SISWeaponDurability_Config.ChanceAnimalFatOnSkinHuman = obj.ChanceAnimalFatOnSkinHuman;
-		SISWeaponDurability_Config.ChanceAnimalFatOnSkinZombie = obj.ChanceAnimalFatOnSkinZombie;
+		DisassemblyTime = obj.DisassemblyTime;
 
-		SISWeaponDurability_Config.DisassemblyTime = obj.DisassemblyTime;
-
-		SISWeaponDurability_Config.WeaponDurabilityBarColor = obj.WeaponDurabilityBarColor;
+		WeaponDurabilityBarColor = obj.WeaponDurabilityBarColor;
 
 		foreach (WeaponTypeSettings weaponTypeSettings in obj.WeaponTypes)
 		{
 			try
 			{
-				SISWeaponDurability_Config.weaponTypes[weaponTypeSettings.WeaponType] = weaponTypeSettings;
+				weaponTypes[weaponTypeSettings.WeaponType] = weaponTypeSettings;
 			}
 			catch (Exception ex)
 			{
-				SISWeaponDurability_Config.Log("Error adding " + weaponTypeSettings.WeaponType + ": " + ex.Message);
+				Log($"Error adding {weaponTypeSettings.WeaponType}: {ex.Message}");
 			}
 		}
 
@@ -241,11 +194,11 @@ public class SISWeaponDurability_Config
 		{
 			try
 			{
-				SISWeaponDurability_Config.ExcludedWeapons.Add(text);
+				ExcludedWeapons.Add(text);
 			}
 			catch (Exception ex2)
 			{
-				SISWeaponDurability_Config.Log("Error adding " + text + ": " + ex2.Message);
+				Log("Error adding " + text + ": " + ex2.Message);
 			}
 		}
 	}
@@ -254,9 +207,8 @@ public class SISWeaponDurability_Config
 	{
 		foreach (Story story in GameImpl.Instance.CurrentStories)
 		{
-			string text = story.Path + SISWeaponDurability_Config.ModIdentifier;
-			string text2 = story.Path + SISWeaponDurability_Config.SettingsFilePath;
-            if (File.Exists(text) || File.Exists(text2))
+            if (File.Exists(story.Path + ModIdentifierFilename) || 
+				File.Exists(story.Path + SettingsFilename))
 			{
 				return story.Path;
 			}
@@ -267,9 +219,9 @@ public class SISWeaponDurability_Config
 	public static float GetMaxDurabilityForEquipment(Equipment equipment)
 	{
 		string name = equipment.GetPrototype().Name;
-        if (!string.IsNullOrEmpty(name))
+		if (!string.IsNullOrEmpty(name))
 		{
-            if (SISWeaponDurability_Config.weaponTypes.TryGetValue(name, out WeaponTypeSettings weaponTypeSettings))
+			if (weaponTypes.TryGetValue(name, out WeaponTypeSettings weaponTypeSettings))
 			{
 				return weaponTypeSettings.MaxDurability;
 			}
@@ -278,53 +230,53 @@ public class SISWeaponDurability_Config
 		float num;
 		if (equipment is Gun)
 		{
-			num = SISWeaponDurability_Config.DefaultGunDurability;
+			num = DefaultGunDurability;
 		}
 		else if (equipment is Bow)
 		{
-			num = SISWeaponDurability_Config.DefaultBowDurability;
+			num = DefaultBowDurability;
 		}
 		else
 		{
-			num = SISWeaponDurability_Config.DefaultMeleeWeaponDurability;
+			num = DefaultMeleeWeaponDurability;
 		}
 		return num;
 	}
 
 	public static WeaponTypeSettings GetWeaponModifiersForEquipment(Equipment equipment)
 	{
-        string name = equipment.GetPrototype().Name;
-        if (!string.IsNullOrEmpty(name))
+		string name = equipment.GetPrototype().Name;
+		if (!string.IsNullOrEmpty(name))
 		{
-            if (SISWeaponDurability_Config.weaponTypes.TryGetValue(name, out WeaponTypeSettings weaponTypeSettings))
-            {
-                return weaponTypeSettings;
-            }
-        }
+			if (weaponTypes.TryGetValue(name, out WeaponTypeSettings weaponTypeSettings))
+			{
+				return weaponTypeSettings;
+			}
+		}
 
 		return WeaponTypeSettings.GetDefaultDurability(equipment);
 	}
 
 	public static WeaponTypeSettings GetWeaponModifiersForEquipment(EquipmentPrototype equipment)
 	{
-        string name = equipment.Name;
-        if (!string.IsNullOrEmpty(name))
+		string name = equipment.Name;
+		if (!string.IsNullOrEmpty(name))
 		{
-            if (SISWeaponDurability_Config.weaponTypes.TryGetValue(name, out WeaponTypeSettings weaponTypeSettings))
-            {
-                return weaponTypeSettings;
-            }
-        }
+			if (weaponTypes.TryGetValue(name, out WeaponTypeSettings weaponTypeSettings))
+			{
+				return weaponTypeSettings;
+			}
+		}
 
 		return WeaponTypeSettings.GetDefaultDurability(equipment);
 	}
 
 	public static int GetWeaponMaxPartsOnBroken(Equipment equipment)
 	{
-        string name = equipment.GetPrototype().Name;
-        if (!string.IsNullOrEmpty(name))
+		string name = equipment.GetPrototype().Name;
+		if (!string.IsNullOrEmpty(name))
 		{
-            if (SISWeaponDurability_Config.weaponTypes.TryGetValue(name, out WeaponTypeSettings weaponTypeSettings))
+			if (weaponTypes.TryGetValue(name, out WeaponTypeSettings weaponTypeSettings))
 			{
 				return weaponTypeSettings.MaxPartsOnBroken;
 			}
@@ -334,25 +286,29 @@ public class SISWeaponDurability_Config
 
 	public static int GetWeaponMinPartsOnBroken(Equipment equipment)
 	{
-        string name = equipment.GetPrototype().Name;
-        if (!string.IsNullOrEmpty(name))
+		string name = equipment.GetPrototype().Name;
+		if (!string.IsNullOrEmpty(name))
 		{
-            if (SISWeaponDurability_Config.weaponTypes.TryGetValue(name, out WeaponTypeSettings weaponTypeSettings))
-            {
-                return weaponTypeSettings.MinPartsOnBroken;
-            }
-        }
+			if (weaponTypes.TryGetValue(name, out WeaponTypeSettings weaponTypeSettings))
+			{
+				return weaponTypeSettings.MinPartsOnBroken;
+			}
+		}
 		return WeaponTypeSettings.GetDefaultDurability(equipment).MinPartsOnBroken;
 	}
 
 	public static SISWeaponDurability_Config instance;
 
 	public static bool LoggingEnabled = false;
-	private static string SettingsFilePath = "/Settings_WeaponDurability.xml";
-	private static string WeaponTypeSettingsOtherMods = "/Settings_WeaponDurabilityAddon.xml";
-	public static string ModIdentifier = "/SISWEAPONDURABILITYREWORKED.txt";
-	private static string LogFilePath = "/log.txt";
 	public static string StoryPath = "";
+	public static string LogPath = "";
+	public static string SettingsPath = "";
+	public static string ModIdentifierPath = "";
+	public static string WeaponTypeSettingsOtherModsPath = "";
+	private static string LogFilename = "/Log_SISWeaponDurability.txt";
+	private static string SettingsFilename = "/Settings_WeaponDurability.xml";
+	private static string WeaponTypeSettingsOtherModsFilename = "/Settings_WeaponDurabilityAddon.xml";
+	private static string ModIdentifierFilename = "/SISWEAPONDURABILITYREWORKED.txt";
 
 	public static string SpeechWeaponBrokenUniqueId = "NPCWeaponBroken";
 	public static string DisassembleMeleeWeaponWorkbenchRecipeUniqueId = "SISWeaponDurability_DisassembleMeleeWeaponWorkbench";

@@ -16,8 +16,9 @@ public class Main
 
     public static void Load()
 	{
-		SISWeaponDurability_Config.ReloadSettings();
-		HarmonyInstance = new Harmony("SISWeaponDurability");
+		SISWeaponDurability_Config.Initialize();
+		SISWeaponDurability_Config.LoadSettings();
+        HarmonyInstance = new Harmony("SISWeaponDurability");
 		HarmonyInstance.PatchAll();
 	}
 

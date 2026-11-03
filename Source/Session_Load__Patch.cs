@@ -5,7 +5,7 @@ public class Session_Load__Patch
 {
 	private static void Finalizer(Session __instance, bool newGame)
 	{
-		SISWeaponDurability_Config.ReloadSettings();
+        SISWeaponDurability_Config.LoadSettings();
 		SISWeaponDurability_Utils.LoadProtos();
 	}
 }

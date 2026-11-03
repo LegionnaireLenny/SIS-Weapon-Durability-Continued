@@ -52,6 +52,7 @@ public class SISWeaponDurability_Settings
 	}
 
     public bool LoggingEnabled = false;
+    public bool EnabledForPlayer = true;
     public bool EnabledForPlayerCommunity = true;
 	public bool EnabledForNPCs = false;
 	public bool EnabledForMeleeWeapons = true;

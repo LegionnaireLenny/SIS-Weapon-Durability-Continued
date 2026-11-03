@@ -43,15 +43,20 @@ public class Character_OnMeleeAttacked__Patch
 {
 	private static void Postfix(Character __instance, Character source, TileObject intendedTarget, InjuryType injuryType, InjuryLocation injuryLocation, InfectionType infectionType, Vector3 nonDeterministicAttackPos, Vector3 attackDir, Bone bone, Vector3 hitPosInBoneSpace, float damage)
     {
+        SISWeaponDurability_Config.Log($"{source?.GetDisplayNameString()} attacked {__instance?.GetDisplayNameString()} with {source.EquippedItem.GetDisplayNameString()}");
         if (source == null ||
             source.EquippedItem == null ||
-            (!SISWeaponDurability_Config.EnabledForMeleeWeapons && source.EquippedItem is MeleeWeapon) ||
+            !SISWeaponDurability_Config.EnabledForMeleeWeapons ||
             (injuryType != InjuryType.BluntObject && injuryType != InjuryType.SharpObject) ||
             (SISWeaponDurability_Config.ExcludedWeapons.IndexOf(source.EquippedItem.GetPrototype().Name) != -1) ||
-            (!SISWeaponDurability_Config.EnabledForPlayerCommunity && source.IsOnPlayersTeam() && source != Hud.Instance.LocalControlledCharacter) ||
-            (!SISWeaponDurability_Config.EnabledForNPCs && !source.IsControllableByPlayer() && !source.IsOnPlayersTeam()))
+            !SISWeaponDurability_Utils.IsWeaponDegradationEnabledForCharacter(source))
         {
             return;
+        }
+
+        if (!(source.EquippedItem is MeleeWeapon))
+        {
+            SISWeaponDurability_Config.Log($"OnMeleeAttack triggered with non-melee weapon");
         }
 
         WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(source.EquippedItem);

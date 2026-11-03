@@ -15,7 +15,7 @@ public class Equipment_GetBaseDamage__Patch
             float deteriorationMultiplier = Mathf.Log10(durabilityPercent * 10);
             float damage = __instance.GetPrototype().Damage * deteriorationMultiplier * SISWeaponDurability_Config.GlobalWeaponBaseDamageMultiplier;
             __result = Mathf.Clamp(damage, minDamage, __instance.GetPrototype().Damage);
-            SISWeaponDurability_Config.Log($"{__instance.GetPrototype().Name} | Durability: {currentDurability}/{maxDurabilityForEquipment} | Deterioration: x{deteriorationMultiplier} | Global: x{SISWeaponDurability_Config.GlobalWeaponBaseDamageMultiplier} | Damage: {__instance.GetPrototype().Damage} -> {__result}");
+            //SISWeaponDurability_Config.Log($"{__instance.GetPrototype().Name} | Durability: {currentDurability}/{maxDurabilityForEquipment} | Deterioration: x{deteriorationMultiplier} | Global: x{SISWeaponDurability_Config.GlobalWeaponBaseDamageMultiplier} | Damage: {__instance.GetPrototype().Damage} -> {__result}");
         }
     }
 }

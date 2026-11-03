@@ -5,9 +5,11 @@ public class MoveToAndSkin_OnDeactivate__Patch
 {
 	private static void Postfix(MoveToAndSkin __instance, Character character, Goal parent)
 	{
-        if (__instance.Success && 
-			SISWeaponDurability_Config.SkinningReducesDurability && 
-			character.EquippedItem is HuntingKnife)
+        SISWeaponDurability_Config.Log($"{character.GetDisplayNameString()} finished skinning");
+        if (SISWeaponDurability_Config.SkinningReducesDurability &&
+            __instance.Success && 
+			character.EquippedItem is HuntingKnife &&
+            SISWeaponDurability_Utils.IsWeaponDegradationEnabledForCharacter(character))
 		{
 			SISWeaponDurability_Config.Log("Skinning successful");
 			WeaponTypeSettings weaponModifiersForEquipment = SISWeaponDurability_Config.GetWeaponModifiersForEquipment(character.EquippedItem);
