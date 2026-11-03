@@ -1,4 +1,11 @@
 ## Changelog
+#### Version 1.2.0
+- Added an option to toggle degradation for the player
+- Assassination, chopping, mining, and skinning check if degradation is enabled for the character (previously it always degraded the item regardless of settings, even for NPCs)
+- Improved debug logging (it actually works now)
+- Refactoring, code improvements, and cleanup
+
+#### Version 1.1.0
 - Fixed bug that prevented chopping trees from degrading axes (previously it checked if a hunting knife was equipped instead of an axe)
 - Fixed bug that prevented repairing firearms if the character didn't also have duct tape in their inventory
 - Disassembling ranged weapons now gives parts based on the weapon type instead of defaulting to junk parts when the weapon is not defined in Settings_WeaponDurability.xml or Settings_WeaponDurabilityAddon.xml

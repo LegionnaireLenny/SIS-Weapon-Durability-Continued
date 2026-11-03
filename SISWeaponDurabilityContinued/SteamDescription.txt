@@ -2,11 +2,13 @@ This is an update to SweetCaptn's mod [url=https://steamcommunity.com/sharedfile
 
 [h2]What's New[/h2]
 [list]
-[*] Fixed bug that prevented chopping trees from degrading axes (previously it checked if a hunting knife was equipped instead of an axe)
-[*] Fixed bug that prevented repairing firearms if the character didn't also have duct tape in their inventory
-[*] Disassembling ranged weapons now gives parts based on the weapon type instead of defaulting to junk parts when the weapon is not defined in Settings_WeaponDurability.xml or Settings_WeaponDurabilityAddon.xml
-[*] Changed the 0.5x multiplier to weapon base damage to 1x and made it a setting in Settings_WeaponDurability.xml (it wasn't mentioned anywhere, so I assume it was unintentional)
-[*] Changed deterioration to decrease base weapon damage along a logarithmic curve instead of linearly (e.g. at 80%, 50%, 30% durability, weapon damage is reduced by ~10%, ~30%, and 50% respectively)
+[*] Fixed bug that prevented chopping trees from degrading axes
+[*] Fixed bug that prevented repairing firearms if the character didn't have duct tape in their inventory
+[*] Assassination, chopping, mining, and skinning check if degradation is enabled for the character
+[*] Disassembling weapons that are not defined in the settings files (e.g. mod weapons) gives parts based on the weapon type instead of defaulting to junk parts
+[*] Changed the 0.5x multiplier to weapon base damage to 1x and made it a setting in Settings_WeaponDurability.xml (it was undocumented, so I assume it was unintentional)
+[*] Deterioration decreases base weapon damage along a logarithmic curve instead of linearly (e.g. at 80%, 50%, 30% durability, weapon damage is reduced by ~10%, ~30%, and 50% respectively)
+[*] Added option to toggle degradation for the player
 [*] Added option to get animal fat from skinning humans
 [*] Added option to get animal fat from skinning zombies
 [*] Added option to configure weapon disassembly time
@@ -44,9 +46,6 @@ Weapons are repaired by using Duct tape or Gun Repair Kits which can also be fou
 
 When selling weapons, their durability affects their prices. A very damaged weapon won't be as valuable as another one in pristine condition. Same thing happens with their damage, the less durability they have, the less damage they will do.
 
-[h3]Co-op[/h3]
-It might now be compatible with co-op, but I'm not entirely sure. Let me know in the comments if you run into any issues.
-
 [h3]Recipes[/h3]
 [list]
 [*] Make Homemade Glue. Made at campfire with pot. Requires 2 Animal Fat + 100 Water.
@@ -54,17 +53,13 @@ It might now be compatible with co-op, but I'm not entirely sure. Let me know in
 [*] Make Duct Tape. Made at workbench. Requires Construction level 3 + 10 Junk Parts + 1 Glue (or Homemade Glue).
 [/list]
 
-[h3] Modded Weapons Support [/h3]
-It supports any weapons added by other mods, and will give default configurations for weapons that aren't found in the settings file. For any modder adding weapons to the game, you can set the durability configuration of your weapons by creating a file named "SISWeaponDurability_WeaponsAddon.xml" inside your mod folder. 
-
-[b] Follow the example file that is provided with this mod. [/b]
-
 [h2]Settings[/h2]
 The settings file can be found inside the mod's folder under "Settings_SISWeaponDurability.xml".
 [list]
 [*] (New) LoggingEnabled. Enables writing debug messages to log.txt (default false)
-[*] EnabledForPlayerCommunity. Whether weapons will degrade for you and characters in your community. (default true)
-[*] EnabledForNPCs. Whether weapons will degrade for npcs. (default false)
+[*] (New) EnabledForPlayer. Whether weapons will degrade for you. (default true)
+[*] EnabledForPlayerCommunity. Whether weapons will degrade for characters in your community. (default true)
+[*] EnabledForNPCs. Whether weapons will degrade for NPCs. (default false)
 [*] EnabledForMeleeWeapons. Whether durability is enabled for melee weapons. (default true)
 [*] EnabledForAmmoWeapons. Whether durability is enabled for guns. (default true)
 [*] (New) SkinningReducesDurability. (default true)
@@ -100,18 +95,3 @@ The settings file can be found inside the mod's folder under "Settings_SISWeapon
 [*] ExcludedWeapons. List of weapons that will not degrade with use.
 [/list]
 
-[h3]WeaponTypeSettings[/h3]
-This is the durability configuration for a weapon, where you can set its maximum durability, degradation rate, amount of parts given on break. 
-[list]
-[*] WeaponType. The weapon's prototype name.
-[*] DegradeRate. The speed at which the weapon degrades.
-[*] MaxDurability. A weapon's maximum durability.
-[*] MinPartsOnBroken. Minimum amount of parts obtained when the weapon breaks.
-[*] MaxPartsOnBroken. Maximum amount of parts obtained when the weapon breaks. 
-[/list]
-
-[h2]Notes[/h2]
-The mod changes quite a few things, so there could be a bug or two. Report any issues in the comments section!
-
-[h2]Compatibility[/h2]
-Could have some incompatibilities with mods changing combat behaviour, otherwise you're all set :)

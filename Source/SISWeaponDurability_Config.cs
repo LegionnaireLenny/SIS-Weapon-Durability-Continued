@@ -115,9 +115,12 @@ public class SISWeaponDurability_Config
     {
         try
         {
-            using (StreamWriter streamWriter = File.AppendText(LogPath))
+            if (LoggingEnabled)
             {
-                streamWriter.WriteLine($"{new string(FileLog.indentChar, FileLog.indentLevel)}[SISWeaponDurability] {message}");
+                using (StreamWriter streamWriter = File.AppendText(LogPath))
+                {
+                    streamWriter.WriteLine($"{new string(FileLog.indentChar, FileLog.indentLevel)}[SISWeaponDurability] {message}");
+                }
             }
         }
         catch { }

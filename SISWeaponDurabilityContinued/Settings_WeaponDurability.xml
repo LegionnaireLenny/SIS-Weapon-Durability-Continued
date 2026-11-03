@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <SISWeaponDurability_Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <LoggingEnabled>false</LoggingEnabled>
+  <EnabledForPlayer>true</EnabledForPlayer>
   <EnabledForPlayerCommunity>true</EnabledForPlayerCommunity>
   <EnabledForNPCs>false</EnabledForNPCs>
   <EnabledForMeleeWeapons>true</EnabledForMeleeWeapons>
