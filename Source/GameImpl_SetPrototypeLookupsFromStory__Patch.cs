@@ -53,15 +53,19 @@ public class GameImpl_SetPrototypeLookupsFromStory__Patch
                     ProductPrototypeName = SISWeaponDurability_Utils.GetDisassemblyPrototypeName(equip),
                     SkillProgression = 1,
                     CraftingTime = SISWeaponDurability_Config.DisassemblyTime,
-                    NameHash = StringUtil.JenkinsHash(SISWeaponDurability_Config.DisassembleWeaponRecipeNameKey)
+                    NameHash = StringUtil.JenkinsHash(SISWeaponDurability_Config.DisassembleWeaponRecipeNameKey),
+                    Ingredients = new List<Ingredient>
+                    {
+                        new Ingredient
+                        {
+                            Amount = 1,
+                            PrototypeNames = new List<string>
+                            {
+                                equip.Name
+                            }
+                        }
+                    }
                 };
-                Ingredient ingredient = new Ingredient
-                {
-                    PrototypeNames = new List<string>(),
-                    Amount = 1
-                };
-                ingredient.PrototypeNames.Add(equip.Name);
-                recipe.Ingredients.Add(ingredient);
                 story.Recipes[recipe.UniqueID] = recipe;
                 __instance.CurrentRecipes[recipe.UniqueID] = recipe;
             }

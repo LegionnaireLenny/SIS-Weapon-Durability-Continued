@@ -44,14 +44,14 @@ public class SISWeaponDurability_Config
         }
     }
 
+    public static void ReloadSettings()
+    {
+        IsConfigLoaded = false;
+        LoadSettings();
+    }
+
     public static void LoadSettings()
     {
-        if (IsConfigLoaded)
-        {
-            IsConfigLoaded = false;
-            return;
-        }
-
         try
         {
             if (File.Exists(SettingsPath))
@@ -301,8 +301,6 @@ public class SISWeaponDurability_Config
     }
 
     public static SISWeaponDurability_Config instance;
-
-    public static bool LoggingEnabled = false;
     public static string StoryPath = "";
     public static string LogPath = "";
     public static string SettingsPath = "";
@@ -333,6 +331,7 @@ public class SISWeaponDurability_Config
     public static bool LoadInProgress = false;
     public static bool IsConfigLoaded = false;
 
+    public static bool LoggingEnabled = false;
     public static bool EnabledForPlayer;
     public static bool EnabledForPlayerCommunity;
     public static bool EnabledForNPCs;

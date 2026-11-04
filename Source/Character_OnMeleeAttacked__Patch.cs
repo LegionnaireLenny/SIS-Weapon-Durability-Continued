@@ -43,7 +43,7 @@ public class Character_OnMeleeAttacked__Patch
 {
     private static void Postfix(Character __instance, Character source, TileObject intendedTarget, InjuryType injuryType, InjuryLocation injuryLocation, InfectionType infectionType, Vector3 nonDeterministicAttackPos, Vector3 attackDir, Bone bone, Vector3 hitPosInBoneSpace, float damage)
     {
-        SISWeaponDurability_Config.Log($"{source?.GetDisplayNameString()} attacked {__instance?.GetDisplayNameString()} with {source.EquippedItem.GetDisplayNameString()}");
+        SISWeaponDurability_Config.Log($"{source?.GetDisplayNameString()} attacked {__instance?.GetDisplayNameString()} with {source?.EquippedItem?.GetDisplayNameString() ?? "unarmed attack"}");
         if (source == null ||
             source.EquippedItem == null ||
             !SISWeaponDurability_Config.EnabledForMeleeWeapons ||
