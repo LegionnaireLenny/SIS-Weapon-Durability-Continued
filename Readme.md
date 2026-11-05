@@ -1,3 +1,6 @@
+## SIS-Weapon-Durability-Continued
+This is an update to SweetCaptn's mod, SIS Weapon Durability https://steamcommunity.com/sharedfiles/filedetails/?id=3487805258, that fixes a few bugs, adds a couple features and several new configuration options. This mod replaces the original mod, so do not use them together. This was tested on the publicbeta version.
+
 ## Changelog
 #### Version 1.2.0
 - Added an option to toggle degradation for the player
