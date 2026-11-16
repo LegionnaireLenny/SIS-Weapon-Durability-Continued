@@ -73,6 +73,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\AmmoWeapon_OnFired__Patch.cs" />
     <Compile Include="Source\AvailableAction_GetCaption__Patch.cs" />
     <Compile Include="Source\Character_OnMeleeAttacked__Patch.cs" />
@@ -95,7 +96,6 @@
     <Compile Include="Source\MoveToAndMine_OnDeactivate__Patch.cs" />
     <Compile Include="Source\MoveToAndSkin_OnAnimationEvent__Patch.cs" />
     <Compile Include="Source\MoveToAndSkin_OnDeactivate__Patch.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Session_Load__Patch.cs" />
     <Compile Include="Source\Session_ProcessInputAction__Patch.cs" />
     <Compile Include="Source\SISWeaponDurability_Config.cs" />
